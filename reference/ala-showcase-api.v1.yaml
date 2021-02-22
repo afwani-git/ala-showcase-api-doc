@@ -5,199 +5,150 @@ info:
   contact:
     name: afwani shofiyulloh
     email: afwani123@gmail.com
-  description: 'api design spec'
+  description: api design spec
 servers:
   - url: 'http://localhost:3000'
-paths:
-  '/users/{userId}':
-    parameters:
-      - schema:
-          type: integer
-        name: userId
-        in: path
-        required: true
-        description: Id of an existing user.
-    get:
-      summary: Get User Info by User ID
-      tags:
-        - users
-      responses:
-        '200':
-          description: User Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Get User Alice Smith:
-                  value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
-                    emailVerified: true
-                    signUpDate: '2019-08-24'
-        '404':
-          description: User Not Found
-      operationId: get-users-userId
-      description: Retrieve the information of the user with the matching user ID.
-    patch:
-      summary: Update User Information
-      operationId: patch-users-userId
-      responses:
-        '200':
-          description: User Updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Updated User Rebecca Baker:
-                  value:
-                    id: 13
-                    firstName: Rebecca
-                    lastName: Baker
-                    email: rebecca@gmail.com
-                    dateOfBirth: '1985-10-02'
-                    emailVerified: false
-                    createDate: '2019-08-24'
-        '404':
-          description: User Not Found
-        '409':
-          description: Email Already Taken
-      description: Update the infromation of an existing user.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
-                dateOfBirth:
-                  type: string
-            examples:
-              Update First Name:
-                value:
-                  firstName: Rebecca
-              Update Email:
-                value:
-                  email: rebecca@gmail.com
-              Update Last Name & Date of Birth:
-                value:
-                  lastName: Baker
-                  dateOfBirth: '1985-10-02'
-        description: Patch user properties to update.
-      tags:
-        - users
-  /user:
-    post:
-      summary: Create New User
-      operationId: post-user
-      responses:
-        '200':
-          description: User Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                New User Bob Fellow:
-                  value:
-                    id: 12
-                    firstName: Bob
-                    lastName: Fellow
-                    email: bob.fellow@gmail.com
-                    dateOfBirth: '1996-08-24'
-                    emailVerified: false
-                    createDate: '2020-11-18'
-        '400':
-          description: Missing Required Information
-        '409':
-          description: Email Already Taken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                dateOfBirth:
-                  type: string
-                  format: date
-              required:
-                - firstName
-                - lastName
-                - email
-                - dateOfBirth
-            examples:
-              Create User Bob Fellow:
-                value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
-        description: Post the necessary fields for the API to create a new user.
-      description: Create a new user.
-      tags:
-        - users
+paths: {}
 components:
   schemas:
-    User:
-      title: User
+    Partner:
+      title: Partner
       type: object
+      x-examples: {}
+      properties:
+        UUID:
+          type: string
+          format: uuid
+          description: Partner Unique Identifier
+        Type:
+          type: string
+          enum:
+            - Driver
+            - Warehose
+          description: |-
+            Partner Type (UUID) uuid : type
+            (2debfd7a-2c9c-11ea-978f-2e728ce88125 => Driver)
+            (2debfa82-2c9c-11ea-978f-2e728ce88125 => Warehouse)
+          format: uuid
+        Code:
+          description: Partner code
+          type: string
+        Name:
+          type: string
+          description: Partner Username / Slug
+        FullName:
+          type: string
+          description: Partner Full Name
+        Logo:
+          type: string
+          description: Partner Logo URL
+        Image:
+          type: string
+          description: Partner Image URL
+        Latitude:
+          type: string
+          description: Partner Latitude
+        Longitude:
+          type: string
+          description: Partner Longitude
+        Address:
+          type: string
+          description: Partner Address
+        Region:
+          type: string
+          description: Partner Region
+    Category:
+      type: object
+      title: Category
       description: ''
-      x-examples:
-        Alice Smith:
-          id: 142
-          firstName: Alice
-          lastName: Smith
-          email: alice.smith@gmail.com
-          dateOfBirth: '1997-10-31'
-          emailVerified: true
-          signUpDate: '2019-08-24'
+      properties:
+        UUID:
+          type: string
+          description: Category Unique Identifier
+          format: uuid
+        Code:
+          type: string
+          description: Category Code / Slug
+        Image:
+          type: string
+          description: Category Name
+        Description:
+          type: string
+          description: Category Image URL
+        Order:
+          type: string
+          description: Category Index Order (int)
+        IsDraft:
+          type: string
+          description: Category access is Draft or Public
+          enum:
+            - Draft
+            - Public
+          example: Draft
+        DraftBy:
+          type: string
+          description: User who create the Category (if is draft) (uuid) (relation to partner)
+          format: uuid
+    Good:
+      title: Good
+      type: object
+      properties:
+        UUID:
+          type: string
+          description: Good Unique Identifier
+          format: uuid
+        Code:
+          type: string
+          description: Good Code / Slug
+        Category:
+          type: string
+          description: Good Category (uuid) (Relation with Category)
+          format: uuid
+        Name:
+          type: string
+          description: Good Name
+        Image:
+          type: string
+          description: Good Image URL
+        Aliases:
+          type: array
+          description: Good Alias / Another Name (array string)
+          items:
+            type: string
+        Description:
+          type: string
+          description: Good Description
+        UnitType:
+          type: string
+          description: |-
+            Good Unit Type
+            - 15a481f2-af27-11ea-b3de-0242ac130004 : Grams
+            - 15a4840e-af27-11ea-b3de-0242ac130004 : Kilograms
+            - 15a48652-af27-11ea-b3de-0242ac130004 : Quantities
+            - 15a487c4-af27-11ea-b3de-0242ac130004 : Liters
+          format: uuid
+        UnitValue:
+          type: number
+          description: Good Unit Value (number/float/double)
+        IsFixed:
+          type: boolean
+          description: Good Fixed Unit flag (bool) (if true cannot order with custom)
+        IsDraft:
+          type: string
+          description: Good access is Draft or Public
+          enum:
+            - Draft
+            - Public
+        DraftBy:
+          type: string
+          description: User who create the Category (if is draft) (uuid) (relation to partner)
+          format: uuid
+    Product:
+      title: Product
+      type: object
       properties:
         id:
-          type: integer
-          description: Unique identifier for the given user.
-        firstName:
           type: string
-        lastName:
-          type: string
-        email:
-          type: string
-          format: email
-        dateOfBirth:
-          type: string
-          format: date
-          example: '1997-10-31'
-        emailVerified:
-          type: boolean
-          description: Set to true if the user's email has been verified.
-        createDate:
-          type: string
-          format: date
-          description: The date that the user was created.
-      required:
-        - id
-        - firstName
-        - lastName
-        - email
-        - emailVerified
-      x-tags:
-        - models
-        - users
   securitySchemes:
     api-key:
       type: http
