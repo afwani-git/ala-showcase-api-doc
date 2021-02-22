@@ -5,7 +5,7 @@ info:
   contact:
     name: afwani shofiyulloh
     email: afwani123@gmail.com
-  description: ''
+  description: 'api design spec'
 servers:
   - url: 'http://localhost:3000'
 paths:
@@ -94,6 +94,8 @@ paths:
                   lastName: Baker
                   dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
+      tags:
+        - users
   /user:
     post:
       summary: Create New User
