@@ -5,10 +5,37 @@ info:
   contact:
     name: afwani shofiyulloh
     email: afwani123@gmail.com
-  description: api design spec
+  description: design api spec
 servers:
-  - url: 'http://localhost:3000'
-paths: {}
+  - url: 'http://localhost:3000/apis'
+paths:
+  /gentoken:
+    get:
+      summary: Your GET endpoint
+      tags:
+        - token
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  foo:
+                    type: string
+        '401':
+          description: Unauthorized
+      operationId: get-gentoken
+      description: 'lorem ipsum '
+      security:
+        - X-Ala-Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
 components:
   schemas:
     Partner:
@@ -146,13 +173,49 @@ components:
     Product:
       title: Product
       type: object
+      description: this model not fix!
       properties:
-        id:
+        UUID:
+          type: string
+          format: uuid
+        name:
+          type: string
+        price:
+          type: string
+        description:
           type: string
   securitySchemes:
-    api-key:
-      type: http
-      scheme: bearer
-      description: Apikey
+    X-Ala-Token:
+      name: API Key
+      type: apiKey
+      in: header
+  responses:
+    unauthorized-res:
+      description: 'Response for unauthorized request and validation token '
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              staus:
+                type: number
+                description: status-code
+                example: 401
+                default: 401
+              messages:
+                type: string
+                description: Error Messages
+                example: Require Api Token
+                default: Require Api Token
+              data:
+                type: array
+                items: {}
+          examples:
+            unauthorized-response-example:
+              value:
+                staus: 401
+                messages: Require Api Token
+                data:
+                  - null
 tags:
-  - name: users
+  - name: overview
