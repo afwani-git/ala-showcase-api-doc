@@ -28,8 +28,7 @@ paths:
           description: Unauthorized
       operationId: get-gentoken
       description: 'lorem ipsum '
-      security:
-        - X-Ala-Token: []
+      security: []
       requestBody:
         content:
           application/json:
@@ -77,7 +76,7 @@ paths:
           $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-partner-slug-info
       security:
-        - X-Ala-Token: []
+        - Anonymous-Token: []
 components:
   schemas:
     Partner:
@@ -227,8 +226,8 @@ components:
         description:
           type: string
   securitySchemes:
-    X-Ala-Token:
-      name: API Key
+    Anonymous-Token:
+      name: X-Ala-Token
       type: apiKey
       in: header
   responses:
