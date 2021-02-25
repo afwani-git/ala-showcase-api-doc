@@ -149,9 +149,125 @@ paths:
           headers: {}
         '401':
           $ref: '#/components/responses/unauthorized-res'
-      operationId: get-apis-partner-slug-info
-      description: this endpoint will get all data about selected partner
+      operationId: get-apis-partner-info
+      description: this endpoint will get all data detail about selected partner
       parameters: []
+      security:
+        - X-Ala-Token: []
+  '/apis/partner/{slug}/product/list':
+    parameters:
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    UUID:
+                      type: string
+                    name:
+                      type: string
+                    price:
+                      type: string
+                    description:
+                      type: string
+              examples:
+                example-fetch-list-product-by-selected-partner:
+                  value:
+                    - UUID: '1'
+                      name: bayam
+                      price: Rp.2000
+                      description: bayam segar enak mantap
+                    - UUID: '2'
+                      name: sawi
+                      price: Rp.3000
+                      description: sawi segar enak mantap bergizi
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    message: product not found
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      operationId: get-apis-partner-slug-product-list
+      description: this endpoint will get list all data product selected partner
+      security:
+        - X-Ala-Token: []
+      tags:
+        - partner
+  '/apis/partner/{slug}/product/{slug}/info':
+    parameters:
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  UUID:
+                    type: string
+                  name:
+                    type: string
+                  price:
+                    type: string
+                  description:
+                    type: string
+              examples:
+                example-fetch-data-selected-product:
+                  value:
+                    UUID: '1'
+                    name: bayam
+                    price: Rp.2000
+                    description: bayam mantap enak
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    message: cannot find selected product
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      operationId: get-apis-partner-slug-product-slug-info
+      description: this endpoint will get detail data about selected product
       security:
         - X-Ala-Token: []
 components:
