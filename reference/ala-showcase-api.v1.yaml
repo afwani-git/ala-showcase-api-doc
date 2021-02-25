@@ -150,7 +150,10 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-partner-slug-info
-      description: this endpoint will show all data about selected partner
+      description: this endpoint will get all data about selected partner
+      parameters: []
+      security:
+        - X-Ala-Token: []
 components:
   schemas:
     Partner:
