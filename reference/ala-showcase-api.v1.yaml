@@ -87,7 +87,8 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - partner
       responses:
         '200':
           description: OK
