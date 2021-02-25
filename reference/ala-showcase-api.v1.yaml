@@ -78,6 +78,78 @@ paths:
       operationId: get-apis-partner-slug-info
       security:
         - X-Ala-Token: []
+  '/apis/partner/{slug}/info':
+    parameters:
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  UUID:
+                    type: string
+                  Type:
+                    type: string
+                  Code:
+                    type: string
+                  Name:
+                    type: string
+                  FullName:
+                    type: string
+                  Logo:
+                    type: string
+                  Image:
+                    type: string
+                  Latitude:
+                    type: string
+                  Longitude:
+                    type: string
+                  Address:
+                    type: string
+                  Region:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    UUID: '1'
+                    Type: Ikan
+                    Code: IKN-765
+                    Name: Budi
+                    FullName: Budi Santoso
+                    Logo: /img/logo.jpg
+                    Image: /img/image.jpg
+                    Latitude: '-7.937933'
+                    Longitude: '112.626672'
+                    Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                    Region: Jawa timur
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    message: cannot found this partner
+          headers: {}
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      operationId: get-apis-partner-slug-info
+      description: this endpoint will show all data about selected partner
 components:
   schemas:
     Partner:
