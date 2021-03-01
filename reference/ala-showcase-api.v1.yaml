@@ -236,7 +236,6 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      tags: []
       responses:
         '200':
           description: OK
@@ -279,6 +278,8 @@ paths:
       description: this endpoint will get detail data about selected product
       security:
         - X-Ala-Token: []
+      tags:
+        - partner
 components:
   schemas:
     Partner:
