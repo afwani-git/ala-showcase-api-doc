@@ -7,7 +7,7 @@ info:
     email: afwani123@gmail.com
   description: design api spec
 servers:
-  - url: 'http://localhost:3000
+  - url: 'http://localhost:3000/apis'
 paths:
   /gentoken:
     get:
@@ -154,6 +154,15 @@ paths:
       parameters: []
       security:
         - X-Ala-Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                '':
+                  type: string
+        description: ''
   '/apis/partner/{slug}/product/list':
     parameters:
       - schema:
@@ -415,12 +424,47 @@ components:
         UUID:
           type: string
           format: uuid
-        name:
+          description: Product Unique Identifier
+        GoodVariant:
+          $ref: '#/components/schemas/GoodVariant'
+        Good:
+          $ref: '#/components/schemas/Good'
+        User:
+          $ref: '#/components/schemas/Partner'
+        Image:
           type: string
-        price:
+          description: Product Image URL
+        Description:
           type: string
-        description:
+          description: Product Description
+        FirstRegisteredAt:
           type: string
+          description: First Timestamp Product Created
+        PricePerSet:
+          type: string
+          description: Price Per Set (Number/Float/Double) (It will depend on Unit Value on Good Variant / Good)
+        IsAvailable:
+          type: boolean
+          description: Product Availability Flag (Bool)
+        IsActive:
+          type: boolean
+          description: Product Active Flag (Bool) (It for Soft-Delete and Recoverable)
+        isFixed:
+          type: boolean
+          description: Product Fixed Unit Flag (Bool) (If true cannot order with custom)
+        DiscountType:
+          type: string
+          description: 'Product Discount Type- : Fixedc2795a62-7360-11eb-9439-0242ac130002- : Percentagec2795c7e-7360-11eb-9439-0242ac130002'
+          format: uuid
+        DiscountValue:
+          type: number
+          description: Product Discount Value based on DiscountType (Number/Float/Double)
+        DiscountAmount:
+          type: string
+          description: 'Product Price Cut/Off Amount (Number/Float/Double) (eg. Type is Percentage and Value is 15, it mean Discount Amount is 15% from PricePerSet)'
+        DiscountActive:
+          type: boolean
+          description: Product Discount Active Flag (Bool)
     Country:
       title: Country
       type: object
@@ -488,9 +532,94 @@ components:
           description: First Timestamp Region Available
         IsAvailable:
           type: boolean
+    GoodVariant:
+      title: GoodVariant
+      type: object
+      description: Good Variant attributes
+      properties:
+        UUID:
+          type: string
+          description: Good Variant Unique Identifier
+        Code:
+          type: string
+          description: Good Variant Code / Slug
+        Good:
+          $ref: '#/components/schemas/Good'
+        Name:
+          type: string
+          description: Good Variant Name (Main will be filled )@
+        Image:
+          type: string
+          description: Good Variant Image URL
+        Description:
+          type: string
+          description: Good Variant Description
+        UnitValue:
+          type: number
+          description: Good Variant Unit Value (Number/Float/Double)
+        IsDraft:
+          type: string
+          description: Good Variant access is Draft or Public
+          enum:
+            - Draft
+            - Public
+        DraftBy:
+          $ref: '#/components/schemas/Partner'
+    AvailableVote:
+      title: AvailableVote
+      type: object
+      properties:
+        UUID:
+          type: string
+          format: uuid
+          description: Available Vote Unique Identifier
+        Region:
+          type: string
+          description: Region (UUID) (Relation with Region)
+          format: uuid
+        DeviceID:
+          type: string
+          description: Client Device ID (Unique per Region
+        AppID:
+          type: string
+          description: Client AppID (eg. )com.gear.web.peacock.ala
+        Email:
+          type: string
+          description: Client Email
+        Latitude:
+          type: string
+          description: Client Latitude
+        Longitude:
+          type: string
+          description: Client Longitude
+        Recommendation:
+          type: number
+          description: Client Recommendation (0 - 5)
+          minimum: 0
+          maximum: 5
+          exclusiveMinimum: false
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 0
+        Properties:
+          type: string
+      required:
+        - UUID
+        - Region
+        - DeviceID
+        - AppID
+        - Email
+        - Latitude
+        - Longitude
+        - Recommendation
+      description: Available Vote is data structure for Coverage Vote
   securitySchemes:
-    Anonymous-Token:
-      name: X-Ala-Token
+    X-Ala-Token:
+      name: API Key
       type: apiKey
       in: header
   responses:
