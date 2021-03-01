@@ -7,7 +7,7 @@ info:
     email: afwani123@gmail.com
   description: design api spec
 servers:
-  - url: 'http://localhost:3000/apis'
+  - url: 'http://localhost:3000
 paths:
   /gentoken:
     get:
@@ -489,8 +489,8 @@ components:
         IsAvailable:
           type: boolean
   securitySchemes:
-    X-Ala-Token:
-      name: API Key
+    Anonymous-Token:
+      name: X-Ala-Token
       type: apiKey
       in: header
   responses:
