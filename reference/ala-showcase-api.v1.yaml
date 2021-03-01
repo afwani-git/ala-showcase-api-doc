@@ -287,9 +287,12 @@ components:
             - Driver
             - Warehose
           description: |-
-            Partner Type (UUID) uuid : type
-            (2debfd7a-2c9c-11ea-978f-2e728ce88125 => Driver)
-            (2debfa82-2c9c-11ea-978f-2e728ce88125 => Warehouse)
+            Partner Type (UUID) 
+
+            uuid : type
+
+            2debfd7a-2c9c-11ea-978f-2e728ce88125 : Driver
+            2debfa82-2c9c-11ea-978f-2e728ce88125 : Warehouse
           format: uuid
         Code:
           description: Partner code
@@ -318,6 +321,7 @@ components:
         Region:
           type: string
           description: Partner Region
+      description: ''
     Category:
       type: object
       title: Category
@@ -353,6 +357,7 @@ components:
     Good:
       title: Good
       type: object
+      x-examples: {}
       properties:
         UUID:
           type: string
@@ -401,9 +406,7 @@ components:
             - Draft
             - Public
         DraftBy:
-          type: string
-          description: User who create the Category (if is draft) (uuid) (relation to partner)
-          format: uuid
+          $ref: '#/components/schemas/Partner'
     Product:
       title: Product
       type: object
@@ -418,6 +421,73 @@ components:
           type: string
         description:
           type: string
+    Country:
+      title: Country
+      type: object
+      properties:
+        UUID:
+          type: string
+          format: uuid
+          description: Country Unique Identifier
+        Code:
+          type: string
+          description: Code country
+        Name:
+          type: string
+          description: Country Name
+        VoteScore:
+          type:
+            - string
+            - number
+          description: Total Country Core
+        VoteCount:
+          type:
+            - string
+            - number
+          description: |
+            Total Country Voter
+        FirstAvailableAt:
+          type: string
+          format: date-time
+          description: |
+            First Timestamp Country Available
+        IsAvailable:
+          type: boolean
+          description: Country availability flag
+        Properties:
+          type: string
+          description: Country another Properties
+      description: ''
+    Region:
+      title: Region
+      type: object
+      properties:
+        UUID:
+          type: string
+          description: Region Unique Identifier
+        Country:
+          $ref: '#/components/schemas/Country'
+        Code:
+          type: string
+          description: 'Region Code (Format: )< CountryCode >:< RegionName >'
+        Name:
+          type: string
+          description: Region Name
+        VoteScore:
+          type:
+            - string
+            - number
+          description: Total Region Core
+        VoteCount:
+          type:
+            - string
+            - number
+          description: Total Region Voter
+        FirstAvailableAt:
+          type: string
+          description: First Timestamp Region Available
+        IsAvailable:
+          type: boolean
   securitySchemes:
     X-Ala-Token:
       name: API Key
