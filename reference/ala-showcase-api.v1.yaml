@@ -293,15 +293,39 @@ paths:
                 type: object
                 properties:
                   status:
-                    type: string
+                    type:
+                      - string
+                      - number
                   messages:
                     type: string
                   data:
                     type: array
                     items:
                       $ref: '#/components/schemas/Region'
-        '201':
-          description: Created
+              examples:
+                coverage-check-example:
+                  value:
+                    status: 200
+                    messages: succeed
+                    data:
+                      - UUID: '1'
+                        Country:
+                          UUID: '14'
+                          Code: '+62'
+                          Name: Indonesia
+                          VoteScore: 4
+                          VoteCount: 12
+                          FirstAvailableAt: '2019-08-24T14:15:22Z'
+                          IsAvailable: true
+                          Properties: lorem ipsim dolor sit amet
+                        Code: '+62'
+                        Name: Indonesia
+                        VoteScore: 4
+                        VoteCount: 12
+                        FirstAvailableAt: '2019-08-24T14:15:22Z'
+                        IsAvailable: true
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-coverage-check
       security:
         - X-Ala-Token: []
@@ -656,8 +680,10 @@ components:
           schema:
             type: object
             properties:
-              staus:
-                type: number
+              status:
+                type:
+                  - number
+                  - string
                 description: status-code
                 example: 401
                 default: 401
