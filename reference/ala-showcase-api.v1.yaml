@@ -280,6 +280,31 @@ paths:
         - X-Ala-Token: []
       tags:
         - partner
+  /apis/coverage/check/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Region'
+        '201':
+          description: Created
+      operationId: get-apis-coverage-check
+      security:
+        - X-Ala-Token: []
 components:
   schemas:
     Partner:
