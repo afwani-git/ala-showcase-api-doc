@@ -329,6 +329,53 @@ paths:
       operationId: get-apis-coverage-check
       security:
         - X-Ala-Token: []
+      description: check location
+  /apis/coverage/vote:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: get-apis-coverage-vote
+      description: vote
+    post:
+      summary: ''
+      operationId: post-apis-coverage-vote
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AvailableVote'
+              examples:
+                example-1:
+                  value:
+                    status: null
+                    messages: string
+                    data:
+                      - UUID: UUID
+                        Region: Region
+                        DeviceID: DeviceID
+                        AppID: AppID
+                        Email: Email
+                        Latitude: Latitude
+                        Longitude: Longitude
+                        Recommendation: 1
+                        Properties: Properties
+      description: Posting vote
+      security:
+        - X-Ala-Token: []
 components:
   schemas:
     Partner:
