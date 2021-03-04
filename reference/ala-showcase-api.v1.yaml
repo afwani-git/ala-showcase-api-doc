@@ -332,7 +332,7 @@ paths:
       description: check location
   /apis/coverage/vote:
     post:
-      summary: ''
+      summary: Your POST endpoint
       operationId: post-apis-coverage-vote
       responses:
         '200':
@@ -378,6 +378,18 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AvailableVote'
+            examples:
+              example-1:
+                value:
+                  UUID: UUID
+                  Region: Region
+                  DeviceID: DeviceID
+                  AppID: AppID
+                  Email: Email@Email.com
+                  Latitude: Latitude
+                  Longitude: Longitude
+                  Recommendation: 1
+                  Properties: Properties
         description: ''
 components:
   schemas:
