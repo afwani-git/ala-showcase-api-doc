@@ -331,11 +331,6 @@ paths:
         - X-Ala-Token: []
       description: check location
   /apis/coverage/vote:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      operationId: get-apis-coverage-vote
-      description: vote
     post:
       summary: ''
       operationId: post-apis-coverage-vote
@@ -373,9 +368,17 @@ paths:
                         Longitude: Longitude
                         Recommendation: 1
                         Properties: Properties
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
       description: Posting vote
       security:
         - X-Ala-Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailableVote'
+        description: ''
 components:
   schemas:
     Partner:
