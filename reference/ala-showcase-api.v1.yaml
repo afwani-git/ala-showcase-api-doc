@@ -280,6 +280,42 @@ paths:
         - X-Ala-Token: []
       tags:
         - partner
+  /apis/category/list:
+    get:
+      summary: Category List
+      tags:
+        - category
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+              examples:
+                example-category-list-res:
+                  value:
+                    - UUID: '0001'
+                      Code: CAT-001
+                      Image: vegetables
+                      Description: /img/category/vege01.jpg
+                      Order: '12'
+                      IsDraft: Public
+                      DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+                    - UUID: '0002'
+                      Code: CAT-002
+                      Image: Fruit
+                      Description: /img/category/fruit01.jpg
+                      Order: '50'
+                      IsDraft: Draf
+                      DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+      operationId: get-apis-category-list
+      description: 'this endpoint will be return category list '
+      security:
+        - X-Ala-Token: []
+      parameters: []
 components:
   schemas:
     Partner:
