@@ -253,10 +253,11 @@ paths:
         - X-Ala-Token: []
       tags:
         - partner
-  /apis/coverage/check/:
+  /apis/coverage/check:
     get:
-      summary: Check Endpoint
-      tags: []
+      summary: check coverage region
+      tags:
+        - coverage
       responses:
         '200':
           description: OK
@@ -303,9 +304,10 @@ paths:
       security:
         - X-Ala-Token: []
       description: check location
+    parameters: []
   /apis/coverage/vote:
     post:
-      summary: Vote Endpoint
+      summary: Vote Region
       operationId: post-apis-coverage-vote
       responses:
         '200':
@@ -364,10 +366,13 @@ paths:
                   Recommendation: 1
                   Properties: Properties
         description: ''
+      tags:
+        - coverage
   /apis/gentoken:
     get:
       summary: gentoken Endpoint
-      tags: []
+      tags:
+        - token
       responses:
         '200':
           description: OK
@@ -385,7 +390,7 @@ paths:
                   data:
                     type: array
                     items:
-                      type: string
+                      type: object
               examples:
                 example-1:
                   value:
@@ -394,8 +399,7 @@ paths:
                     data:
                       - token_string
       operationId: get-apis-gentoken
-      security:
-        - X-Ala-Token: []
+      description: generate token api
 components:
   schemas:
     Partner:
