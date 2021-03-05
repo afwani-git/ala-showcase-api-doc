@@ -9,33 +9,6 @@ info:
 servers:
   - url: 'http://localhost:3000/apis'
 paths:
-  /gentoken:
-    get:
-      summary: Your GET endpoint
-      tags:
-        - token
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  foo:
-                    type: string
-        '401':
-          description: Unauthorized
-      operationId: get-gentoken
-      description: 'lorem ipsum '
-      security:
-        - X-Ala-Token: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
   '/apis/partner/{slug}/':
     parameters:
       - schema:
@@ -282,7 +255,7 @@ paths:
         - partner
   /apis/coverage/check/:
     get:
-      summary: Your GET endpoint
+      summary: Check Endpoint
       tags: []
       responses:
         '200':
@@ -332,7 +305,7 @@ paths:
       description: check location
   /apis/coverage/vote:
     post:
-      summary: Your POST endpoint
+      summary: Vote Endpoint
       operationId: post-apis-coverage-vote
       responses:
         '200':
@@ -359,15 +332,15 @@ paths:
                     status: null
                     messages: string
                     data:
-                      - UUID: UUID
-                        Region: Region
-                        DeviceID: DeviceID
-                        AppID: AppID
-                        Email: Email
-                        Latitude: Latitude
-                        Longitude: Longitude
+                      - UUID: '12'
+                        Region: Washington
+                        DeviceID: '1122'
+                        AppID: '1'
+                        Email: email@email.com
+                        Latitude: '38.8951'
+                        Longitude: '-77.0364'
                         Recommendation: 1
-                        Properties: Properties
+                        Properties: Lorem Ipsum
         '401':
           $ref: '#/components/responses/unauthorized-res'
       description: Posting vote
@@ -391,6 +364,38 @@ paths:
                   Recommendation: 1
                   Properties: Properties
         description: ''
+  /apis/gentoken:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: string
+              examples:
+                example-1:
+                  value:
+                    status: null
+                    message: string
+                    data:
+                      - token_string
+      operationId: get-apis-gentoken
+      security:
+        - X-Ala-Token: []
 components:
   schemas:
     Partner:
