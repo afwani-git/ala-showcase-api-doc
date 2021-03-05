@@ -277,7 +277,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Region'
               examples:
-                coverage-check-example:
+                check response:
                   value:
                     status: 200
                     messages: succeed
@@ -329,7 +329,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/AvailableVote'
               examples:
-                example-1:
+                vote response:
                   value:
                     status: null
                     messages: string
@@ -354,17 +354,17 @@ paths:
             schema:
               $ref: '#/components/schemas/AvailableVote'
             examples:
-              example-1:
+              vote post:
                 value:
-                  UUID: UUID
-                  Region: Region
-                  DeviceID: DeviceID
-                  AppID: AppID
+                  UUID: '12'
+                  Region: Washington
+                  DeviceID: '1122'
+                  AppID: '1'
                   Email: Email@Email.com
-                  Latitude: Latitude
-                  Longitude: Longitude
+                  Latitude: '38.8951'
+                  Longitude: '-77.0364'
                   Recommendation: 1
-                  Properties: Properties
+                  Properties: Lorem Ipsum
         description: ''
       tags:
         - coverage
@@ -392,7 +392,7 @@ paths:
                     items:
                       type: object
               examples:
-                example-1:
+                token response:
                   value:
                     status: null
                     message: string
