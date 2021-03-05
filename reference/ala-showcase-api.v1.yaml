@@ -366,7 +366,7 @@ paths:
         description: ''
   /apis/gentoken:
     get:
-      summary: Your GET endpoint
+      summary: gentoken Endpoint
       tags: []
       responses:
         '200':
