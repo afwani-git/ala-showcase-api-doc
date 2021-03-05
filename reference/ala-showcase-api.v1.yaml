@@ -282,7 +282,7 @@ paths:
         - partner
   /apis/category/list:
     get:
-      summary: Category List
+      summary: Get List Of Category
       tags:
         - category
       responses:
@@ -291,9 +291,18 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Category'
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - number
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
               examples:
                 example-category-list-res:
                   value:
