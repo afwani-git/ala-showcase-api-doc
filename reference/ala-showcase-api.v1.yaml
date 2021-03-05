@@ -283,6 +283,86 @@ paths:
   /apis/category/list:
     get:
       summary: Get List Of Category
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - number
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+              examples:
+                example-category-list-res-200:
+                  value:
+                    status: 200
+                    messages: OK
+                    data:
+                      - UUID: '0001'
+                        Code: CAT-001
+                        Image: vegetable
+                        Description: /img/category/CAT-001.jpg
+                        Order: '12'
+                        IsDraft: Public
+                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+                      - UUID: '0002'
+                        Code: CAT-002
+                        Image: Fruit
+                        Description: /img/category/CAT-002.jpg
+                        Order: '22'
+                        IsDraft: Public
+                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+                      - UUID: '0003'
+                        Code: CAT-003
+                        Image: Meat
+                        Description: /img/category/CAT-003.jpg
+                        Order: '32'
+                        IsDraft: Draf
+                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - number
+                  messages:
+                    type: string
+              examples:
+                example-category-list-res-401:
+                  value:
+                    status: 401
+                    messages: Unauthorized
+      operationId: get-apis-category-list
+      description: 'this endpoint will be return category list '
+      security:
+        - X-Ala-Token: []
+      parameters: []
+      tags:
+        - category
+    parameters: []
+  '/apis/category/{slug}/info':
+    parameters:
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+    get:
+      summary: 'GET Category {slug} info'
       tags:
         - category
       responses:
@@ -304,24 +384,101 @@ paths:
                     items:
                       $ref: '#/components/schemas/Category'
               examples:
-                example-category-list-res:
+                'example-category-{slug}-info-res-200':
                   value:
-                    - UUID: '0001'
-                      Code: CAT-001
-                      Image: vegetables
-                      Description: /img/category/vege01.jpg
-                      Order: '12'
-                      IsDraft: Public
-                      DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                    - UUID: '0002'
-                      Code: CAT-002
-                      Image: Fruit
-                      Description: /img/category/fruit01.jpg
-                      Order: '50'
-                      IsDraft: Draf
-                      DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-      operationId: get-apis-category-list
-      description: 'this endpoint will be return category list '
+                    status: 200
+                    messages: OK
+                    data:
+                      - UUID: '0001'
+                        Code: CAT-001
+                        Image: vegetable
+                        Description: /img/category/CAT-001.jpg
+                        Order: '12'
+                        IsDraft: Public
+                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+                      - UUID: '0002'
+                        Code: CAT-002
+                        Image: Fruit
+                        Description: /img/category/CAT-002.jpg
+                        Order: '22'
+                        IsDraft: Public
+                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+                      - UUID: '0003'
+                        Code: CAT-003
+                        Image: Meat
+                        Description: /img/category/CAT-003.jpg
+                        Order: '32'
+                        IsDraft: Draf
+                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - number
+                  messages:
+                    type: string
+              examples:
+                'example-category-{slug}-info-res-401':
+                  value:
+                    status: 401
+                    '': Unauthorized
+      operationId: get-apis-category-slug-info
+      security:
+        - X-Ala-Token: []
+      description: 'this endpoint return info {slug} category'
+  '/apis/category/{slug}/product':
+    parameters:
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+    get:
+      summary: 'GET category {slug} product'
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - number
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+              examples:
+                'example-category-{slug}-product-res-200':
+                  value:
+                    status: 200
+                    messages: OK
+                    data:
+                      - UUID: '0001'
+                        Code: CAT-001
+                        Image: vegetable
+                      - UUID: '0002'
+                        Code: CAT-002
+                        Image: Fruit
+                        Description: /img/category/CAT-002.jpg
+                      - UUID: '0003'
+                        Code: CAT-003
+                        Image: Meat
+                        Description: /img/category/CAT-003.jpg
+      operationId: get-apis-category-slug-product
+      description: 'this endpoint return the product of category {slug}'
       security:
         - X-Ala-Token: []
       parameters: []
@@ -409,6 +566,7 @@ components:
           type: string
           description: User who create the Category (if is draft) (uuid) (relation to partner)
           format: uuid
+      x-examples: {}
     Good:
       title: Good
       type: object
