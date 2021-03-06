@@ -9,48 +9,6 @@ info:
 servers:
   - url: 'http://localhost:3000/apis'
 paths:
-  '/apis/partner/{slug}/':
-    parameters:
-      - schema:
-          type: string
-        name: slug
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags:
-        - partner
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                  messages:
-                    type: string
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Partner'
-                  '':
-                    type: string
-              examples:
-                fetch-data-partner-example-res:
-                  value:
-                    status: string
-                    messages: string
-                    data:
-                      - nama: helo
-                        deskripsi: world
-        '401':
-          $ref: '#/components/responses/unauthorized-res'
-      operationId: get-apis-partner-slug-info
-      security:
-        - X-Ala-Token: []
   '/apis/partner/{slug}/info':
     parameters:
       - schema:
