@@ -329,23 +329,7 @@ paths:
                         IsDraft: Draf
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type:
-                      - string
-                      - number
-                  messages:
-                    type: string
-              examples:
-                example-category-list-res-401:
-                  value:
-                    status: 401
-                    messages: Unauthorized
+          $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-category-list
       description: 'this endpoint will be return category list '
       security:
@@ -411,23 +395,7 @@ paths:
                         IsDraft: Draf
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type:
-                      - string
-                      - number
-                  messages:
-                    type: string
-              examples:
-                'example-category-{slug}-info-res-401':
-                  value:
-                    status: 401
-                    '': Unauthorized
+          $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-category-slug-info
       security:
         - X-Ala-Token: []
@@ -477,6 +445,8 @@ paths:
                         Code: CAT-003
                         Image: Meat
                         Description: /img/category/CAT-003.jpg
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-category-slug-product
       description: 'this endpoint return the product of category {slug}'
       security:
