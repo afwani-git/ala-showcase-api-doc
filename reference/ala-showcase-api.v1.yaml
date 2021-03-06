@@ -7,35 +7,8 @@ info:
     email: afwani123@gmail.com
   description: design api spec
 servers:
-  - url: 'http://localhost:3000
+  - url: 'http://localhost:3000/apis'
 paths:
-  /gentoken:
-    get:
-      summary: Your GET endpoint
-      tags:
-        - token
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  foo:
-                    type: string
-        '401':
-          description: Unauthorized
-      operationId: get-gentoken
-      description: 'lorem ipsum '
-      security:
-        - X-Ala-Token: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
   '/apis/partner/{slug}/':
     parameters:
       - schema:
@@ -97,42 +70,31 @@ paths:
               schema:
                 type: object
                 properties:
-                  UUID:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  message:
                     type: string
-                  Type:
-                    type: string
-                  Code:
-                    type: string
-                  Name:
-                    type: string
-                  FullName:
-                    type: string
-                  Logo:
-                    type: string
-                  Image:
-                    type: string
-                  Latitude:
-                    type: string
-                  Longitude:
-                    type: string
-                  Address:
-                    type: string
-                  Region:
-                    type: string
+                  data:
+                    $ref: '#/components/schemas/Partner'
               examples:
-                example-1:
+                fetch-partner-data:
                   value:
-                    UUID: '1'
-                    Type: Ikan
-                    Code: IKN-765
-                    Name: Budi
-                    FullName: Budi Santoso
-                    Logo: /img/logo.jpg
-                    Image: /img/image.jpg
-                    Latitude: '-7.937933'
-                    Longitude: '112.626672'
-                    Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
-                    Region: Jawa timur
+                    status: 200
+                    message: getting partner info success
+                    data:
+                      UUID: '1'
+                      Type: Sayur
+                      Code: SYR-765
+                      Name: Budi
+                      FullName: Budi Santoso
+                      Logo: /img/logo.jpg
+                      Image: /img/image.jpg
+                      Latitude: '-7.937933'
+                      Longitude: '112.626672'
+                      Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                      Region: Jawa timur
         '204':
           description: No Content
           content:
@@ -169,29 +131,69 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    UUID:
-                      type: string
-                    name:
-                      type: string
-                    price:
-                      type: string
-                    description:
-                      type: string
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      UUID:
+                        type: string
+                      Type:
+                        type: string
+                      Code:
+                        type: string
+                      Name:
+                        type: string
+                      FullName:
+                        type: string
+                      Logo:
+                        type: string
+                      Image:
+                        type: string
+                      Latitude:
+                        type: string
+                      Longitude:
+                        type: string
+                      Address:
+                        type: string
+                      Region:
+                        type: string
+                      Product:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Product'
               examples:
                 example-fetch-list-product-by-selected-partner:
                   value:
-                    - UUID: '1'
-                      name: bayam
-                      price: Rp.2000
-                      description: bayam segar enak mantap
-                    - UUID: '2'
-                      name: sawi
-                      price: Rp.3000
-                      description: sawi segar enak mantap bergizi
+                    status: 200
+                    message: getting all product selected partner success
+                    data:
+                      UUID: '1'
+                      Type: Sayur
+                      Code: SYR-765
+                      Name: Budi
+                      FullName: Budi Santoso
+                      Logo: /img/logo.jpg
+                      Image: /img/image.jpg
+                      Latitude: '-7.937933'
+                      Longitude: '112.626672'
+                      Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                      Region: Jawa timur
+                      Product:
+                        - UUID: '1'
+                          name: bayam
+                          price: Rp.2000
+                          description: bayam segar enak mantap
+                        - UUID: '2'
+                          name: sawi
+                          price: Rp.3000
+                          description: sawi segar enak mantap bergizi
         '204':
           description: No Content
           content:
@@ -227,7 +229,6 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      tags: []
       responses:
         '200':
           description: OK
@@ -236,21 +237,61 @@ paths:
               schema:
                 type: object
                 properties:
-                  UUID:
+                  Status:
+                    type:
+                      - string
+                      - integer
+                  Message:
                     type: string
-                  name:
-                    type: string
-                  price:
-                    type: string
-                  description:
-                    type: string
+                  Data:
+                    type: object
+                    properties:
+                      UUID:
+                        type: string
+                      Type:
+                        type: string
+                      Code:
+                        type: string
+                      Name:
+                        type: string
+                      FullName:
+                        type: string
+                      Logo:
+                        type: string
+                      Image:
+                        type: string
+                      Latitude:
+                        type: string
+                      Longitude:
+                        type: string
+                      Address:
+                        type: string
+                      Region:
+                        type: string
+                      Product:
+                        $ref: '#/components/schemas/Product'
               examples:
                 example-fetch-data-selected-product:
                   value:
-                    UUID: '1'
-                    name: bayam
-                    price: Rp.2000
-                    description: bayam mantap enak
+                    status: 200
+                    message: getting product info success
+                    data:
+                      UUID: '1'
+                      Type: Sayur
+                      Code: SYR-765
+                      Name: Budi
+                      FullName: Budi Santoso
+                      Logo: /img/logo.jpg
+                      Image: /img/image.jpg
+                      Latitude: '-7.937933'
+                      Longitude: '112.626672'
+                      Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                      Region: Jawa timur
+                      Product:
+                        UUID: '1'
+                        name: bayam
+                        price: Rp.2000
+                        description: bayam segar enak mantap
         '204':
           description: No Content
           content:
@@ -270,6 +311,155 @@ paths:
       description: this endpoint will get detail data about selected product
       security:
         - X-Ala-Token: []
+      tags:
+        - partner
+  /apis/coverage/check:
+    get:
+      summary: check coverage region
+      tags:
+        - coverage
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - number
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Region'
+              examples:
+                check response:
+                  value:
+                    status: 200
+                    messages: succeed
+                    data:
+                      - UUID: '1'
+                        Country:
+                          UUID: '14'
+                          Code: '+62'
+                          Name: Indonesia
+                          VoteScore: 4
+                          VoteCount: 12
+                          FirstAvailableAt: '2019-08-24T14:15:22Z'
+                          IsAvailable: true
+                          Properties: lorem ipsim dolor sit amet
+                        Code: '+62'
+                        Name: Indonesia
+                        VoteScore: 4
+                        VoteCount: 12
+                        FirstAvailableAt: '2019-08-24T14:15:22Z'
+                        IsAvailable: true
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      operationId: get-apis-coverage-check
+      security:
+        - X-Ala-Token: []
+      description: check location
+    parameters: []
+  /apis/coverage/vote:
+    post:
+      summary: Vote Region
+      operationId: post-apis-coverage-vote
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AvailableVote'
+              examples:
+                vote response:
+                  value:
+                    status: null
+                    messages: string
+                    data:
+                      - UUID: '12'
+                        Region: Washington
+                        DeviceID: '1122'
+                        AppID: '1'
+                        Email: email@email.com
+                        Latitude: '38.8951'
+                        Longitude: '-77.0364'
+                        Recommendation: 1
+                        Properties: Lorem Ipsum
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      description: Posting vote
+      security:
+        - X-Ala-Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailableVote'
+            examples:
+              vote post:
+                value:
+                  UUID: '12'
+                  Region: Washington
+                  DeviceID: '1122'
+                  AppID: '1'
+                  Email: Email@Email.com
+                  Latitude: '38.8951'
+                  Longitude: '-77.0364'
+                  Recommendation: 1
+                  Properties: Lorem Ipsum
+        description: ''
+      tags:
+        - coverage
+  /apis/gentoken:
+    get:
+      summary: gentoken Endpoint
+      tags:
+        - token
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+              examples:
+                token response:
+                  value:
+                    status: null
+                    message: string
+                    data:
+                      - token_string
+      operationId: get-apis-gentoken
+      description: generate token api
 components:
   schemas:
     Partner:
@@ -415,12 +605,47 @@ components:
         UUID:
           type: string
           format: uuid
-        name:
+          description: Product Unique Identifier
+        GoodVariant:
+          $ref: '#/components/schemas/GoodVariant'
+        Good:
+          $ref: '#/components/schemas/Good'
+        User:
+          $ref: '#/components/schemas/Partner'
+        Image:
           type: string
-        price:
+          description: Product Image URL
+        Description:
           type: string
-        description:
+          description: Product Description
+        FirstRegisteredAt:
           type: string
+          description: First Timestamp Product Created
+        PricePerSet:
+          type: string
+          description: Price Per Set (Number/Float/Double) (It will depend on Unit Value on Good Variant / Good)
+        IsAvailable:
+          type: boolean
+          description: Product Availability Flag (Bool)
+        IsActive:
+          type: boolean
+          description: Product Active Flag (Bool) (It for Soft-Delete and Recoverable)
+        isFixed:
+          type: boolean
+          description: Product Fixed Unit Flag (Bool) (If true cannot order with custom)
+        DiscountType:
+          type: string
+          description: 'Product Discount Type- : Fixedc2795a62-7360-11eb-9439-0242ac130002- : Percentagec2795c7e-7360-11eb-9439-0242ac130002'
+          format: uuid
+        DiscountValue:
+          type: number
+          description: Product Discount Value based on DiscountType (Number/Float/Double)
+        DiscountAmount:
+          type: string
+          description: 'Product Price Cut/Off Amount (Number/Float/Double) (eg. Type is Percentage and Value is 15, it mean Discount Amount is 15% from PricePerSet)'
+        DiscountActive:
+          type: boolean
+          description: Product Discount Active Flag (Bool)
     Country:
       title: Country
       type: object
@@ -488,9 +713,94 @@ components:
           description: First Timestamp Region Available
         IsAvailable:
           type: boolean
+    GoodVariant:
+      title: GoodVariant
+      type: object
+      description: Good Variant attributes
+      properties:
+        UUID:
+          type: string
+          description: Good Variant Unique Identifier
+        Code:
+          type: string
+          description: Good Variant Code / Slug
+        Good:
+          $ref: '#/components/schemas/Good'
+        Name:
+          type: string
+          description: Good Variant Name (Main will be filled )@
+        Image:
+          type: string
+          description: Good Variant Image URL
+        Description:
+          type: string
+          description: Good Variant Description
+        UnitValue:
+          type: number
+          description: Good Variant Unit Value (Number/Float/Double)
+        IsDraft:
+          type: string
+          description: Good Variant access is Draft or Public
+          enum:
+            - Draft
+            - Public
+        DraftBy:
+          $ref: '#/components/schemas/Partner'
+    AvailableVote:
+      title: AvailableVote
+      type: object
+      properties:
+        UUID:
+          type: string
+          format: uuid
+          description: Available Vote Unique Identifier
+        Region:
+          type: string
+          description: Region (UUID) (Relation with Region)
+          format: uuid
+        DeviceID:
+          type: string
+          description: Client Device ID (Unique per Region
+        AppID:
+          type: string
+          description: Client AppID (eg. )com.gear.web.peacock.ala
+        Email:
+          type: string
+          description: Client Email
+        Latitude:
+          type: string
+          description: Client Latitude
+        Longitude:
+          type: string
+          description: Client Longitude
+        Recommendation:
+          type: number
+          description: Client Recommendation (0 - 5)
+          minimum: 0
+          maximum: 5
+          exclusiveMinimum: false
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 0
+        Properties:
+          type: string
+      required:
+        - UUID
+        - Region
+        - DeviceID
+        - AppID
+        - Email
+        - Latitude
+        - Longitude
+        - Recommendation
+      description: Available Vote is data structure for Coverage Vote
   securitySchemes:
-    Anonymous-Token:
-      name: X-Ala-Token
+    X-Ala-Token:
+      name: API Key
       type: apiKey
       in: header
   responses:
@@ -501,8 +811,10 @@ components:
           schema:
             type: object
             properties:
-              staus:
-                type: number
+              status:
+                type:
+                  - number
+                  - string
                 description: status-code
                 example: 401
                 default: 401
