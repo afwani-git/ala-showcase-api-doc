@@ -43,7 +43,7 @@ paths:
                     message: getting partner info success
                     data:
                       UUID: '1'
-                      Type: Sayur
+                      Type: meat
                       Code: SYR-765
                       Name: Budi
                       FullName: Budi Santoso
@@ -193,6 +193,106 @@ paths:
                         DiscountValue: 0
                         DiscountAmount: 0%
                         DiscountActive: false
+                      - UUID: '2'
+                        GoodVariant:
+                          UUID: '2'
+                          Code: GV-673
+                          Good:
+                            UUID: '2'
+                            Code: G676
+                            Category: Daging
+                            Name: daging sapi kualitas sedang
+                            Image: /image/meatMedium.jpg
+                            Aliases:
+                              - meat
+                              - medium
+                              - Daging
+                              - sedang
+                            Description: ini daging adalah kualitas sedang
+                            UnitType: meat
+                            UnitValue: 10
+                            IsFixed: true
+                            IsDraft: 'No'
+                            DraftBy:
+                              UUID: '1'
+                              Type: meat
+                              Code: SYR-765
+                              Name: Budi
+                              FullName: Budi Santoso
+                              Logo: /img/logo.jpg
+                              Image: /img/image.jpg
+                              Latitude: '-7.937933'
+                              Longitude: '112.626672'
+                              Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                              Region: Jawa timur
+                          Name: Daging sapi kualitas sedang
+                          Image: /image/meatMedium.jpg
+                          Description: ini daging adalah kualitas sedang
+                          UnitValue: 20
+                          IsDraft: 'No'
+                          DraftBy:
+                            UUID: '1'
+                            Type: meat
+                            Code: SYR-765
+                            Name: Budi
+                            FullName: Budi Santoso
+                            Logo: /img/logo.jpg
+                            Image: /img/image.jpg
+                            Latitude: '-7.937933'
+                            Longitude: '112.626672'
+                            Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                            Region: Jawa timur
+                        Good:
+                          UUID: '2'
+                          Code: G676
+                          Category: Daging
+                          Name: daging sapi kualitas sedang
+                          Image: /image/meatMedium.jpg
+                          Aliases:
+                            - meat
+                            - medium
+                            - Daging
+                            - sedang
+                          Description: ini daging adalah kualitas sedang
+                          UnitType: meat
+                          UnitValue: 10
+                          IsFixed: true
+                          IsDraft: 'No'
+                          DraftBy:
+                            UUID: '1'
+                            Type: meat
+                            Code: SYR-765
+                            Name: Budi
+                            FullName: Budi Santoso
+                            Logo: /img/logo.jpg
+                            Image: /img/image.jpg
+                            Latitude: '-7.937933'
+                            Longitude: '112.626672'
+                            Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                            Region: Jawa timur
+                        User:
+                          UUID: '1'
+                          Type: meat
+                          Code: SYR-765
+                          Name: Budi
+                          FullName: Budi Santoso
+                          Logo: /img/logo.jpg
+                          Image: /img/image.jpg
+                          Latitude: '-7.937933'
+                          Longitude: '112.626672'
+                          Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                          Region: Jawa timur
+                        Image: /image/meatMedium.jpg
+                        Description: ini daging adalah kualitas medium
+                        FirstRegisteredAt: Bandung
+                        PricePerSet: Rp.75.000
+                        IsAvailable: true
+                        IsActive: true
+                        IsFixed: true
+                        DiscountType: buy 2 discount 10%
+                        DiscountValue: 10
+                        DiscountAmount: 10%
+                        DiscountActive: false
         '401':
           $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-partner-slug-product-list
@@ -223,39 +323,14 @@ paths:
               schema:
                 type: object
                 properties:
-                  Status:
+                  status:
                     type:
                       - string
                       - integer
-                  Message:
+                  message:
                     type: string
-                  Data:
-                    type: object
-                    properties:
-                      UUID:
-                        type: string
-                      Type:
-                        type: string
-                      Code:
-                        type: string
-                      Name:
-                        type: string
-                      FullName:
-                        type: string
-                      Logo:
-                        type: string
-                      Image:
-                        type: string
-                      Latitude:
-                        type: string
-                      Longitude:
-                        type: string
-                      Address:
-                        type: string
-                      Region:
-                        type: string
-                      Product:
-                        $ref: '#/components/schemas/Product'
+                  data:
+                    $ref: '#/components/schemas/Product'
               examples:
                 example-fetch-data-selected-product:
                   value:
@@ -263,21 +338,105 @@ paths:
                     message: getting product info success
                     data:
                       UUID: '1'
-                      Type: Sayur
-                      Code: SYR-765
-                      Name: Budi
-                      FullName: Budi Santoso
-                      Logo: /img/logo.jpg
-                      Image: /img/image.jpg
-                      Latitude: '-7.937933'
-                      Longitude: '112.626672'
-                      Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
-                      Region: Jawa timur
-                      Product:
+                      GoodVariant:
                         UUID: '1'
-                        name: bayam
-                        price: Rp.2000
-                        description: bayam segar enak mantap
+                        Code: GV-662
+                        Good:
+                          UUID: '1'
+                          Code: G675
+                          Category: Daging
+                          Name: daging sapi A5
+                          Image: /image/meatA5.jpg
+                          Aliases:
+                            - meat
+                            - very good
+                            - Daging
+                            - Sangat bagus
+                          Description: ini daging adalah kualitas terbaik slur
+                          UnitType: meat
+                          UnitValue: 10
+                          IsFixed: true
+                          IsDraft: 'No'
+                          DraftBy:
+                            UUID: '1'
+                            Type: meat
+                            Code: SYR-765
+                            Name: Budi
+                            FullName: Budi Santoso
+                            Logo: /img/logo.jpg
+                            Image: /img/image.jpg
+                            Latitude: '-7.937933'
+                            Longitude: '112.626672'
+                            Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                            Region: Jawa timur
+                        Name: Daging sapi A5
+                        Image: /image/meatA5.jpg
+                        Description: ini daging adalah kualitas terbaik slur
+                        UnitValue: 10
+                        IsDraft: 'No'
+                        DraftBy:
+                          UUID: '1'
+                          Type: meat
+                          Code: SYR-765
+                          Name: Budi
+                          FullName: Budi Santoso
+                          Logo: /img/logo.jpg
+                          Image: /img/image.jpg
+                          Latitude: '-7.937933'
+                          Longitude: '112.626672'
+                          Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                          Region: Jawa timur
+                      Good:
+                        UUID: '1'
+                        Code: G675
+                        Category: Daging
+                        Name: daging sapi A5
+                        Image: /image/meatA5.jpg
+                        Aliases:
+                          - meat
+                          - very good
+                          - Daging
+                          - Sangat bagus
+                        Description: ini daging adalah kualitas terbaik slur
+                        UnitType: meat
+                        UnitValue: 10
+                        IsFixed: true
+                        IsDraft: 'No'
+                        DraftBy:
+                          UUID: '1'
+                          Type: meat
+                          Code: SYR-765
+                          Name: Budi
+                          FullName: Budi Santoso
+                          Logo: /img/logo.jpg
+                          Image: /img/image.jpg
+                          Latitude: '-7.937933'
+                          Longitude: '112.626672'
+                          Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                          Region: Jawa timur
+                      User:
+                        UUID: '1'
+                        Type: meat
+                        Code: SYR-765
+                        Name: Budi
+                        FullName: Budi Santoso
+                        Logo: /img/logo.jpg
+                        Image: /img/image.jpg
+                        Latitude: '-7.937933'
+                        Longitude: '112.626672'
+                        Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                        Region: Jawa timur
+                      Image: /image/meatA5.jpg
+                      Description: ini daging adalah kualitas terbaik slur
+                      FirstRegisteredAt: Bandung
+                      PricePerSet: Rp.100.000
+                      IsAvailable: true
+                      IsActive: true
+                      IsFixed: true
+                      DiscountType: No Discount
+                      DiscountValue: 0
+                      DiscountAmount: 0%
+                      DiscountActive: false
         '401':
           $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-partner-slug-product-slug-info
