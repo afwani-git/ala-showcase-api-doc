@@ -9,48 +9,6 @@ info:
 servers:
   - url: 'http://localhost:3000/apis'
 paths:
-  '/apis/partner/{slug}/':
-    parameters:
-      - schema:
-          type: string
-        name: slug
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags:
-        - partner
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                  messages:
-                    type: string
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Partner'
-                  '':
-                    type: string
-              examples:
-                fetch-data-partner-example-res:
-                  value:
-                    status: string
-                    messages: string
-                    data:
-                      - nama: helo
-                        deskripsi: world
-        '401':
-          $ref: '#/components/responses/unauthorized-res'
-      operationId: get-apis-partner-slug-info
-      security:
-        - X-Ala-Token: []
   '/apis/partner/{slug}/info':
     parameters:
       - schema:
@@ -62,80 +20,11 @@ paths:
       summary: Your GET endpoint
       tags:
         - partner
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  UUID:
-                    type: string
-                  Type:
-                    type: string
-                  Code:
-                    type: string
-                  Name:
-                    type: string
-                  FullName:
-                    type: string
-                  Logo:
-                    type: string
-                  Image:
-                    type: string
-                  Latitude:
-                    type: string
-                  Longitude:
-                    type: string
-                  Address:
-                    type: string
-                  Region:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    UUID: '1'
-                    Type: Ikan
-                    Code: IKN-765
-                    Name: Budi
-                    FullName: Budi Santoso
-                    Logo: /img/logo.jpg
-                    Image: /img/image.jpg
-                    Latitude: '-7.937933'
-                    Longitude: '112.626672'
-                    Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
-                    Region: Jawa timur
-        '204':
-          description: No Content
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    message: cannot found this partner
-          headers: {}
-        '401':
-          $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-partner-info
       description: this endpoint will get all data detail about selected partner
       parameters: []
       security:
         - X-Ala-Token: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                '':
-                  type: string
-        description: ''
   '/apis/partner/{slug}/product/list':
     parameters:
       - schema:
@@ -145,50 +34,6 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    UUID:
-                      type: string
-                    name:
-                      type: string
-                    price:
-                      type: string
-                    description:
-                      type: string
-              examples:
-                example-fetch-list-product-by-selected-partner:
-                  value:
-                    - UUID: '1'
-                      name: bayam
-                      price: Rp.2000
-                      description: bayam segar enak mantap
-                    - UUID: '2'
-                      name: sawi
-                      price: Rp.3000
-                      description: sawi segar enak mantap bergizi
-        '204':
-          description: No Content
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    message: product not found
-        '401':
-          $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-partner-slug-product-list
       description: this endpoint will get list all data product selected partner
       security:
@@ -209,44 +54,6 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  UUID:
-                    type: string
-                  name:
-                    type: string
-                  price:
-                    type: string
-                  description:
-                    type: string
-              examples:
-                example-fetch-data-selected-product:
-                  value:
-                    UUID: '1'
-                    name: bayam
-                    price: Rp.2000
-                    description: bayam mantap enak
-        '204':
-          description: No Content
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-              examples:
-                example-1:
-                  value:
-                    message: cannot find selected product
-        '401':
-          $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-partner-slug-product-slug-info
       description: this endpoint will get detail data about selected product
       security:
@@ -257,59 +64,59 @@ paths:
     get:
       summary: Get List Of Category
     responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type:
-                      - string
-                      - number
-                  messages:
-                    type: string
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type:
+                    - string
+                    - number
+                messages:
+                  type: string
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Category'
+            examples:
+              example-category-list-res-200:
+                value:
+                  status: 200
+                  messages: OK
                   data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Category'
-              examples:
-                example-category-list-res-200:
-                  value:
-                    status: 200
-                    messages: OK
-                    data:
-                      - UUID: '0001'
-                        Code: CAT-001
-                        Image: vegetable
-                        Description: /img/category/CAT-001.jpg
-                        Order: '12'
-                        IsDraft: Public
-                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0002'
-                        Code: CAT-002
-                        Image: Fruit
-                        Description: /img/category/CAT-002.jpg
-                        Order: '22'
-                        IsDraft: Public
-                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0003'
-                        Code: CAT-003
-                        Image: Meat
-                        Description: /img/category/CAT-003.jpg
-                        Order: '32'
-                        IsDraft: Draf
-                        DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-        '401':
-          $ref: '#/components/responses/unauthorized-res'
+                    - UUID: '0001'
+                      Code: CAT-001
+                      Image: vegetable
+                      Description: /img/category/CAT-001.jpg
+                      Order: '12'
+                      IsDraft: Public
+                      DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+                    - UUID: '0002'
+                      Code: CAT-002
+                      Image: Fruit
+                      Description: /img/category/CAT-002.jpg
+                      Order: '22'
+                      IsDraft: Public
+                      DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+                    - UUID: '0003'
+                      Code: CAT-003
+                      Image: Meat
+                      Description: /img/category/CAT-003.jpg
+                      Order: '32'
+                      IsDraft: Draf
+                      DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
+      '401':
+        $ref: '#/components/responses/unauthorized-res'
     operationId: get-apis-category-list
     description: 'this endpoint will be return category list '
     security:
       - X-Ala-Token: []
     parameters: []
     tags:
-        - category
+      - category
   '/apis/category/{slug}/info':
     parameters:
       - schema:
@@ -446,7 +253,7 @@ paths:
                   data:
                     type: array
                     items:
-                     $ref: '#/components/schemas/Region'
+                      $ref: '#/components/schemas/Region'
               examples:
                 check response:
                   value:
