@@ -17,7 +17,7 @@ paths:
         in: path
         required: true
     get:
-      summary: GET PARTNER INFO
+      summary: Get Product Info
       tags:
         - partner
       responses:
@@ -68,7 +68,7 @@ paths:
         in: path
         required: true
     get:
-      summary: GET PRODUCT LIST
+      summary: Get Product list by partner slug
       responses:
         '200':
           description: OK
@@ -328,7 +328,7 @@ paths:
         in: path
         required: true
     get:
-      summary: GET PRODUCT INFO
+      summary: Get product partner
       responses:
         '200':
           description: OK
