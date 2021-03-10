@@ -256,7 +256,7 @@ paths:
   /apis/category/list:
     get:
       summary: Get List Of Category
-    responses:
+      responses:
         '200':
           description: OK
           content:
@@ -303,12 +303,12 @@ paths:
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
         '401':
           $ref: '#/components/responses/unauthorized-res'
-    operationId: get-apis-category-list
-    description: 'this endpoint will be return category list '
-    security:
-      - X-Ala-Token: []
-    parameters: []
-    tags:
+      operationId: get-apis-category-list
+      description: 'this endpoint will be return category list '
+      security:
+        - X-Ala-Token: []
+      parameters: []
+      tags:
         - category
   '/apis/category/{slug}/info':
     parameters:
