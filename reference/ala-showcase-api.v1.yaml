@@ -328,7 +328,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Get product partner
+      summary: Get Product Partner
       responses:
         '200':
           description: OK
