@@ -9,6 +9,463 @@ info:
 servers:
   - url: 'http://localhost:3000/apis'
 paths:
+  '/apis/partner/{slug}/info':
+    parameters:
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+    get:
+      summary: Get Product Info
+      tags:
+        - partner
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  message:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Partner'
+              examples:
+                fetch-partner-data:
+                  value:
+                    status: 200
+                    message: getting partner info success
+                    data:
+                      UUID: '1'
+                      Type: meat
+                      Code: SYR-765
+                      Name: Budi
+                      FullName: Budi Santoso
+                      Logo: /img/logo.jpg
+                      Image: /img/image.jpg
+                      Latitude: '-7.937933'
+                      Longitude: '112.626672'
+                      Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                      Region: Jawa timur
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      operationId: get-apis-partner-info
+      description: this endpoint will get all data detail about selected partner
+      parameters: []
+      security:
+        - X-Ala-Token: []
+  '/apis/partner/{slug}/product/list':
+    parameters:
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+    get:
+      summary: Get Product list by partner slug
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+              examples:
+                example-fetch-list-product-by-selected-partner:
+                  value:
+                    status: 200
+                    message: getting product list success
+                    data:
+                      - UUID: '1'
+                        GoodVariant:
+                          UUID: '1'
+                          Code: daging-sapi-ribs-1
+                          Good:
+                            UUID: '1'
+                            Code: daging-sapi-ribs-1
+                            Category: daging
+                            Name: daging sapi ribs
+                            Image: /image/meatRibs.jpg
+                            Aliases:
+                              - meat
+                              - ribs
+                              - Daging
+                              - daging sapi
+                              - sapi
+                              - tulang rusuk
+                              - rusuk sapi
+                            Description: ini daging sapi bagian rusuknya
+                            UnitType: Kilograms
+                            UnitValue: 1
+                            IsFixed: true
+                            IsDraft: Public
+                            DraftBy:
+                              UUID: '1'
+                              Type: meat
+                              Code: SYR-765
+                              Name: Budi
+                              FullName: Budi Santoso
+                              Logo: /img/logo.jpg
+                              Image: /img/image.jpg
+                              Latitude: '-7.937933'
+                              Longitude: '112.626672'
+                              Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                              Region: Jawa timur
+                          Name: Daging sapi ribs
+                          Image: /image/meatRibs.jpg
+                          Description: ini daging sapi bagian rusuk
+                          UnitValue: 1
+                          IsDraft: Public
+                          DraftBy:
+                            UUID: '1'
+                            Type: meat
+                            Code: SYR-765
+                            Name: Budi
+                            FullName: Budi Santoso
+                            Logo: /img/logo.jpg
+                            Image: /img/image.jpg
+                            Latitude: '-7.937933'
+                            Longitude: '112.626672'
+                            Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                            Region: Jawa timur
+                        Good:
+                          UUID: '1'
+                          Code: daging-sapi-ribs-1
+                          Category: Daging
+                          Name: daging sapi ribs
+                          Image: /image/meatRibs.jpg
+                          Aliases:
+                            - meat
+                            - ribs
+                            - Daging
+                            - daging sapi
+                            - sapi
+                            - tulang rusuk
+                            - rusuk sapi
+                          Description: ini daging sapi bagian rusuk
+                          UnitType: Kilograms
+                          UnitValue: 1
+                          IsFixed: true
+                          IsDraft: Public
+                          DraftBy:
+                            UUID: '1'
+                            Type: meat
+                            Code: SYR-765
+                            Name: Budi
+                            FullName: Budi Santoso
+                            Logo: /img/logo.jpg
+                            Image: /img/image.jpg
+                            Latitude: '-7.937933'
+                            Longitude: '112.626672'
+                            Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                            Region: Jawa timur
+                        User:
+                          UUID: '1'
+                          Type: meat
+                          Code: SYR-765
+                          Name: Budi
+                          FullName: Budi Santoso
+                          Logo: /img/logo.jpg
+                          Image: /img/image.jpg
+                          Latitude: '-7.937933'
+                          Longitude: '112.626672'
+                          Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                          Region: Jawa timur
+                        Image: /image/meatRibs.jpg
+                        Description: ini daging sapi bagian rusuk
+                        FirstRegisteredAt: '10/03/2017 07:29:46 -0700'
+                        PricePerSet: Rp.100.000
+                        IsAvailable: true
+                        IsActive: true
+                        IsFixed: true
+                        DiscountType: Percentage
+                        DiscountValue: 10
+                        DiscountAmount: 10%
+                        DiscountActive: false
+                      - UUID: '2'
+                        GoodVariant:
+                          UUID: '2'
+                          Code: daging-sapi-chuck-2
+                          Good:
+                            UUID: '2'
+                            Code: daging-sapi-chuck-2
+                            Category: daging
+                            Name: daging sapi chuck
+                            Image: /image/meatChuck.jpg
+                            Aliases:
+                              - meat
+                              - chuck
+                              - Daging
+                              - daging sapi
+                              - sapi
+                              - paha depan
+                              - paha sapi
+                              - paha depan sapi
+                            Description: ini daging sapi bagian paha depan
+                            UnitType: Kilograms
+                            UnitValue: 1
+                            IsFixed: true
+                            IsDraft: Public
+                            DraftBy:
+                              UUID: '1'
+                              Type: meat
+                              Code: SYR-765
+                              Name: Budi
+                              FullName: Budi Santoso
+                              Logo: /img/logo.jpg
+                              Image: /img/image.jpg
+                              Latitude: '-7.937933'
+                              Longitude: '112.626672'
+                              Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                              Region: Jawa timur
+                          Name: Daging sapi chuck
+                          Image: /image/meatChuck.jpg
+                          Description: ini daging sapi bagian paha
+                          UnitValue: 1
+                          IsDraft: Public
+                          DraftBy:
+                            UUID: '1'
+                            Type: meat
+                            Code: SYR-765
+                            Name: Budi
+                            FullName: Budi Santoso
+                            Logo: /img/logo.jpg
+                            Image: /img/image.jpg
+                            Latitude: '-7.937933'
+                            Longitude: '112.626672'
+                            Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                            Region: Jawa timur
+                        Good:
+                          UUID: '2'
+                          Code: daging-sapi-chuck-2
+                          Category: Daging
+                          Name: daging sapi chuck
+                          Image: /image/meatChuck.jpg
+                          Aliases:
+                            - meat
+                            - chuck
+                            - Daging
+                            - daging sapi
+                            - sapi
+                            - paha depan
+                            - paha sapi
+                            - paha depan sapi
+                          Description: ini daging sapi bagian paha depan
+                          UnitType: Kilograms
+                          UnitValue: 1
+                          IsFixed: true
+                          IsDraft: Public
+                          DraftBy:
+                            UUID: '1'
+                            Type: meat
+                            Code: SYR-765
+                            Name: Budi
+                            FullName: Budi Santoso
+                            Logo: /img/logo.jpg
+                            Image: /img/image.jpg
+                            Latitude: '-7.937933'
+                            Longitude: '112.626672'
+                            Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                            Region: Jawa timur
+                        User:
+                          UUID: '1'
+                          Type: meat
+                          Code: SYR-765
+                          Name: Budi
+                          FullName: Budi Santoso
+                          Logo: /img/logo.jpg
+                          Image: /img/image.jpg
+                          Latitude: '-7.937933'
+                          Longitude: '112.626672'
+                          Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                          Region: Jawa timur
+                        Image: /image/meatChuck.jpg
+                        Description: ini daging sapi bagian paha depan
+                        FirstRegisteredAt: '10/03/2021 07:29:46 -0700'
+                        PricePerSet: Rp.150.000
+                        IsAvailable: true
+                        IsActive: true
+                        IsFixed: true
+                        DiscountType: Percentage
+                        DiscountValue: 10
+                        DiscountAmount: 10%
+                        DiscountActive: true
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      operationId: get-apis-partner-slug-product-list
+      description: this endpoint will get list all data product selected partner
+      security:
+        - X-Ala-Token: []
+      tags:
+        - partner
+  '/apis/partner/{slug}/product/{slug}/info':
+    parameters:
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: slug
+        in: path
+        required: true
+    get:
+      summary: Get Product Partner
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  message:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Product'
+              examples:
+                example-fetch-data-selected-product:
+                  value:
+                    status: 200
+                    message: getting product info success
+                    data:
+                      UUID: '1'
+                      GoodVariant:
+                        UUID: '1'
+                        Code: daging-sapi-ribs-1
+                        Good:
+                          UUID: '1'
+                          Code: daging-sapi-ribs-1
+                          Category: daging
+                          Name: daging sapi ribs
+                          Image: /image/meatRibs.jpg
+                          Aliases:
+                            - meat
+                            - ribs
+                            - Daging
+                            - daging sapi
+                            - sapi
+                            - tulang rusuk
+                            - rusuk sapi
+                          Description: ini daging sapi bagian rusuknya
+                          UnitType: Kilograms
+                          UnitValue: 1
+                          IsFixed: true
+                          IsDraft: Public
+                          DraftBy:
+                            UUID: '1'
+                            Type: meat
+                            Code: SYR-765
+                            Name: Budi
+                            FullName: Budi Santoso
+                            Logo: /img/logo.jpg
+                            Image: /img/image.jpg
+                            Latitude: '-7.937933'
+                            Longitude: '112.626672'
+                            Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                            Region: Jawa timur
+                        Name: Daging sapi ribs
+                        Image: /image/meatRibs.jpg
+                        Description: ini daging sapi bagian rusuk
+                        UnitValue: 1
+                        IsDraft: Public
+                        DraftBy:
+                          UUID: '1'
+                          Type: meat
+                          Code: SYR-765
+                          Name: Budi
+                          FullName: Budi Santoso
+                          Logo: /img/logo.jpg
+                          Image: /img/image.jpg
+                          Latitude: '-7.937933'
+                          Longitude: '112.626672'
+                          Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                          Region: Jawa timur
+                      Good:
+                        UUID: '1'
+                        Code: daging-sapi-ribs-1
+                        Category: Daging
+                        Name: daging sapi ribs
+                        Image: /image/meatRibs.jpg
+                        Aliases:
+                          - meat
+                          - ribs
+                          - Daging
+                          - daging sapi
+                          - sapi
+                          - tulang rusuk
+                          - rusuk sapi
+                        Description: ini daging sapi bagian rusuk
+                        UnitType: Kilograms
+                        UnitValue: 1
+                        IsFixed: true
+                        IsDraft: Public
+                        DraftBy:
+                          UUID: '1'
+                          Type: meat
+                          Code: SYR-765
+                          Name: Budi
+                          FullName: Budi Santoso
+                          Logo: /img/logo.jpg
+                          Image: /img/image.jpg
+                          Latitude: '-7.937933'
+                          Longitude: '112.626672'
+                          Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                          Region: Jawa timur
+                      User:
+                        UUID: '1'
+                        Type: meat
+                        Code: SYR-765
+                        Name: Budi
+                        FullName: Budi Santoso
+                        Logo: /img/logo.jpg
+                        Image: /img/image.jpg
+                        Latitude: '-7.937933'
+                        Longitude: '112.626672'
+                        Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
+                        Region: Jawa timur
+                      Image: /image/meatRibs.jpg
+                      Description: ini daging sapi bagian rusuk
+                      FirstRegisteredAt: '10/03/2017 07:29:46 -0700'
+                      PricePerSet: Rp.100.000
+                      IsAvailable: true
+                      IsActive: true
+                      IsFixed: true
+                      DiscountType: Percentage
+                      DiscountValue: 10
+                      DiscountAmount: 10%
+                      DiscountActive: false
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      operationId: get-apis-partner-slug-product-slug-info
+      description: this endpoint will get detail data about selected product
+      security:
+        - X-Ala-Token: []
+      tags:
+        - partner
+
   /apis/category/list:
     get:
       summary: Get List Of Category
@@ -181,6 +638,159 @@ paths:
       security:
         - X-Ala-Token: []
       parameters: []
+
+  /apis/coverage/check:
+    get:
+      summary: check coverage region
+      tags:
+        - coverage
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - number
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Region'
+              examples:
+                check response:
+                  value:
+                    status: 200
+                    messages: succeed
+                    data:
+                      - UUID: '1'
+                        Country:
+                          UUID: '14'
+                          Code: '+62'
+                          Name: Indonesia
+                          VoteScore: 4
+                          VoteCount: 12
+                          FirstAvailableAt: '2019-08-24T14:15:22Z'
+                          IsAvailable: true
+                          Properties: lorem ipsim dolor sit amet
+                        Code: '+62'
+                        Name: Indonesia
+                        VoteScore: 4
+                        VoteCount: 12
+                        FirstAvailableAt: '2019-08-24T14:15:22Z'
+                        IsAvailable: true
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      operationId: get-apis-coverage-check
+      security:
+        - X-Ala-Token: []
+      description: check location
+    parameters: []
+  /apis/coverage/vote:
+    post:
+      summary: Vote Region
+      operationId: post-apis-coverage-vote
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  messages:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AvailableVote'
+              examples:
+                vote response:
+                  value:
+                    status: null
+                    messages: string
+                    data:
+                      - UUID: '12'
+                        Region: Washington
+                        DeviceID: '1122'
+                        AppID: '1'
+                        Email: email@email.com
+                        Latitude: '38.8951'
+                        Longitude: '-77.0364'
+                        Recommendation: 1
+                        Properties: Lorem Ipsum
+        '401':
+          $ref: '#/components/responses/unauthorized-res'
+      description: Posting vote
+      security:
+        - X-Ala-Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailableVote'
+            examples:
+              vote post:
+                value:
+                  UUID: '12'
+                  Region: Washington
+                  DeviceID: '1122'
+                  AppID: '1'
+                  Email: Email@Email.com
+                  Latitude: '38.8951'
+                  Longitude: '-77.0364'
+                  Recommendation: 1
+                  Properties: Lorem Ipsum
+        description: ''
+      tags:
+        - coverage
+  /apis/gentoken:
+    get:
+      summary: gentoken Endpoint
+      tags:
+        - token
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type:
+                      - string
+                      - integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        token:
+                          type: string
+                          description: 'return bcrypt '
+              examples:
+                token response:
+                  value:
+                    status: null
+                    message: string
+                    data:
+                      - token_string
+      operationId: get-apis-gentoken
+      description: generate token api
+
 components:
   schemas:
     Partner:
