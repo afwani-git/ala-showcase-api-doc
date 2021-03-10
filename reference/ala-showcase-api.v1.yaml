@@ -63,8 +63,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Partner'
-                  '':
-                    type: string
               examples:
                 fetch-data-partner-example-res:
                   value:
@@ -307,24 +305,24 @@ paths:
                     status: 200
                     messages: OK
                     data:
-                      - UUID: '0001'
-                        Code: CAT-001
+                      - UUID: 42bc2667-074e-4b7c-b50c-80ba531029f3
+                        Code: vegetable
                         Image: vegetable
-                        Description: /img/category/CAT-001.jpg
+                        Description: /img/category/vegetable.jpg
                         Order: '12'
                         IsDraft: Public
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0002'
-                        Code: CAT-002
+                      - UUID: 22f2449e-b894-4fec-9b66-5098101e7e1d
+                        Code: fruit
                         Image: Fruit
-                        Description: /img/category/CAT-002.jpg
+                        Description: /img/category/fruit.jpg
                         Order: '22'
                         IsDraft: Public
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0003'
-                        Code: CAT-003
+                      - UUID: a3dda4e7-c057-4e1f-89b5-85f0d6a71745
+                        Code: meat
                         Image: Meat
-                        Description: /img/category/CAT-003.jpg
+                        Description: /img/category/meat.jpg
                         Order: '32'
                         IsDraft: Draf
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
@@ -373,24 +371,24 @@ paths:
                     status: 200
                     messages: OK
                     data:
-                      - UUID: '0001'
-                        Code: CAT-001
+                      - UUID: 42bc2667-074e-4b7c-b50c-80ba531029f3
+                        Code: vegetable
                         Image: vegetable
-                        Description: /img/category/CAT-001.jpg
+                        Description: /img/category/vegetable.jpg
                         Order: '12'
                         IsDraft: Public
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0002'
-                        Code: CAT-002
+                      - UUID: 22f2449e-b894-4fec-9b66-5098101e7e1d
+                        Code: fruit
                         Image: Fruit
-                        Description: /img/category/CAT-002.jpg
+                        Description: /img/category/fruit.jpg
                         Order: '22'
                         IsDraft: Public
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0003'
-                        Code: CAT-003
+                      - UUID: a3dda4e7-c057-4e1f-89b5-85f0d6a71745
+                        Code: meat
                         Image: Meat
-                        Description: /img/category/CAT-003.jpg
+                        Description: /img/category/meat.jpg
                         Order: '32'
                         IsDraft: Draf
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
@@ -409,7 +407,8 @@ paths:
         required: true
     get:
       summary: 'GET category {slug} product'
-      tags: []
+      tags:
+        - category
       responses:
         '200':
           description: OK
@@ -434,17 +433,100 @@ paths:
                     status: 200
                     messages: OK
                     data:
-                      - UUID: '0001'
-                        Code: CAT-001
-                        Image: vegetable
-                      - UUID: '0002'
-                        Code: CAT-002
-                        Image: Fruit
-                        Description: /img/category/CAT-002.jpg
-                      - UUID: '0003'
-                        Code: CAT-003
-                        Image: Meat
-                        Description: /img/category/CAT-003.jpg
+                      - UUID: aa0385f2-ea3f-4b80-8777-19eb6d494aa0
+                        GoodVariant:
+                          UUID: 41c8471a-7c93-48a2-aaae-8c2a539a10d1
+                          Code: fresh-beef
+                          Good:
+                            UUID: 3f1f5584-8e15-4bb1-b00b-8ded6c6634b3
+                            Code: fresh-beef
+                            Category: 42bc2667-074e-4b7c-b50c-80ba531029f3
+                            Name: Fresh Vegetable
+                            Image: /img/product/good/vegetable.jpg
+                            Aliases:
+                              - Fresh Vegetable
+                            Description: fresh vegetables that have just been harvested from the garden itself
+                            UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
+                            UnitValue: 10
+                            IsFixed: true
+                            IsDraft: Draft
+                            DraftBy:
+                              UUID: f50af7e0-0dd5-4361-ab96-2e04f7bc7e30
+                              Type: Warehouse
+                              Code: 2debfa82-2c9c-11ea-978f-2e728ce88125
+                              Name: Helmi
+                              FullName: Helmi Pradita
+                              Logo: /img/partner/logo/helmi.png
+                              Image: /img/partner/helmi.jpg
+                              Latitude: '-7.497668'
+                              Longitude: '112.456625'
+                              Address: 'Jl mawar no 34, Mojoanyar'
+                              Region: Mojokerto
+                          Name: '@Cabbage'
+                          Image: /img/variant/cabbage.jpg
+                          Description: cabbage harvested in one's own garden
+                          UnitValue: 3
+                          IsDraft: Draft
+                          DraftBy:
+                            UUID: e22f237f-914b-4a91-a419-d96810cb55c4
+                            Type: Driver
+                            Code: 2debfd7a-2c9c-11ea-978f-2e728ce88125
+                            Name: Pradita
+                            FullName: Pradita Helmi
+                            Logo: /img/partner/logo/pradita.png
+                            Image: img/partner/pradita.jpg
+                            Latitude: '-7.497108'
+                            Longitude: '112.454633'
+                            Address: 'Jl mawar 78-79, Mojoanyar'
+                            Region: Mojokerto
+                        Good:
+                          UUID: 1a40f9bf-37f5-49c1-90c4-c0dcfcd8bddd
+                          Code: Fresh Vegetable
+                          Category: 42bc2667-074e-4b7c-b50c-80ba531029f3
+                          Name: Cabbage
+                          Image: /img/good/cabbage.jpg
+                          Aliases:
+                            - Fresh Cabbage
+                          Description: cabbage harvested in one's own garden
+                          UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
+                          UnitValue: 10
+                          IsFixed: true
+                          IsDraft: Draft
+                          DraftBy:
+                            UUID: f50af7e0-0dd5-4361-ab96-2e04f7bc7e30
+                            Type: Driver
+                            Code: 2debfd7a-2c9c-11ea-978f-2e728ce88125
+                            Name: Pradita
+                            FullName: Pradita Helmi
+                            Logo: /img/partner/logo/pradita.png
+                            Image: /img/partner/pradita.jpg
+                            Latitude: '-7.497108'
+                            Longitude: '112.454633'
+                            Address: 'Jl mawar 78-79, Mojoanyar'
+                            Region: Mojokerto
+                        User:
+                          UUID: 1bf1b3d9-ec2c-4556-a2fa-7bdbb33ae673
+                          Type: Warehouse
+                          Code: 2debfa82-2c9c-11ea-978f-2e728ce88125
+                          Name: Helmi
+                          FullName: Helmi Pradita
+                          Logo: /img/user/logo/helmi.png
+                          Image: /img/user/helmi.jpg
+                          Latitude: '-7.497668'
+                          Longitude: '112.456625'
+                          Address: 'Jl mawar no 34, Mojoanyar'
+                          Region: Mojokerto
+                        Image: /img/product/cabbage.jpg
+                        Description: cabbage harvested in one's own garden
+                        FirstRegisteredAt: '2021-03-11'
+                        PricePerSet: '10000'
+                        IsAvailable: true
+                        IsActive: true
+                        isFixed: true
+                        DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
+                        DiscountValue: 10
+                        DiscountAmount: 10%
+                        DiscountActive: true
         '401':
           $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-category-slug-product
