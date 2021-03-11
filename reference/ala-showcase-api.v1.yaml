@@ -102,7 +102,7 @@ paths:
                             Code: daging-sapi-ribs
                             Category: ec0abde4-8233-11eb-8dcd-0242ac130003
                             Name: daging sapi ribs
-                            Image: /image/meatRibs.jpg
+                            Image: /image/cowMeatRibs.jpg
                             Aliases:
                               - meat
                               - ribs
@@ -128,8 +128,8 @@ paths:
                               Longitude: '112.626672'
                               Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                               Region: Jawa timur
-                          Name: Daging sapi ribs
-                          Image: /image/meatRibs.jpg
+                          Name: '@Daging sapi ribs'
+                          Image: /image/cowMeatRibs.jpg
                           Description: ini daging sapi bagian rusuk
                           UnitValue: 1
                           IsDraft: Public
@@ -150,7 +150,7 @@ paths:
                           Code: daging-sapi-ribs
                           Category: ec0abde4-8233-11eb-8dcd-0242ac130003
                           Name: daging sapi ribs
-                          Image: /image/meatRibs.jpg
+                          Image: /image/cowMeatRibs.jpg
                           Aliases:
                             - meat
                             - ribs
@@ -188,10 +188,10 @@ paths:
                           Longitude: '112.626672'
                           Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                           Region: Jawa timur
-                        Image: /image/meatRibs.jpg
+                        Image: /image/cowMeatRibs.jpg
                         Description: ini daging sapi bagian rusuk
                         FirstRegisteredAt: '10/03/2017 07:29:46 -0700'
-                        PricePerSet: Rp.100.000
+                        PricePerSet: '100000'
                         IsAvailable: true
                         IsActive: true
                         IsFixed: true
@@ -208,7 +208,7 @@ paths:
                             Code: daging-sapi-chuck
                             Category: 351c8efc-8236-11eb-8dcd-0242ac130003
                             Name: daging sapi chuck
-                            Image: /image/meatChuck.jpg
+                            Image: /image/cowMeatChuck.jpg
                             Aliases:
                               - meat
                               - chuck
@@ -235,8 +235,8 @@ paths:
                               Longitude: '112.626672'
                               Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                               Region: Jawa timur
-                          Name: Daging sapi chuck
-                          Image: /image/meatChuck.jpg
+                          Name: '@Daging sapi chuck'
+                          Image: /image/cowMeatChuck.jpg
                           Description: ini daging sapi bagian paha
                           UnitValue: 1
                           IsDraft: Public
@@ -257,7 +257,7 @@ paths:
                           Code: daging-sapi-chuck
                           Category: 351c8efc-8236-11eb-8dcd-0242ac130003
                           Name: daging sapi chuck
-                          Image: /image/meatChuck.jpg
+                          Image: /image/cowMeatChuck.jpg
                           Aliases:
                             - meat
                             - chuck
@@ -296,10 +296,10 @@ paths:
                           Longitude: '112.626672'
                           Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                           Region: Jawa timur
-                        Image: /image/meatChuck.jpg
+                        Image: /image/cowMeatChuck.jpg
                         Description: ini daging sapi bagian paha depan
                         FirstRegisteredAt: '10/03/2021 07:29:46 -0700'
-                        PricePerSet: Rp.150.000
+                        PricePerSet: '150000'
                         IsAvailable: true
                         IsActive: true
                         IsFixed: true
@@ -360,7 +360,7 @@ paths:
                           Code: daging-sapi-ribs
                           Category: ec0abde4-8233-11eb-8dcd-0242ac130003
                           Name: daging sapi ribs
-                          Image: /image/meatRibs.jpg
+                          Image: /image/cowMeatRibs.jpg
                           Aliases:
                             - meat
                             - ribs
@@ -386,8 +386,8 @@ paths:
                             Longitude: '112.626672'
                             Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                             Region: Jawa timur
-                        Name: Daging sapi ribs
-                        Image: /image/meatRibs.jpg
+                        Name: '@Daging sapi ribs'
+                        Image: /image/cowMeatRibs.jpg
                         Description: ini daging sapi bagian rusuk
                         UnitValue: 1
                         IsDraft: Public
@@ -408,7 +408,7 @@ paths:
                         Code: daging-sapi-ribs
                         Category: ec0abde4-8233-11eb-8dcd-0242ac130003
                         Name: daging sapi ribs
-                        Image: /image/meatRibs.jpg
+                        Image: /image/cowMeatRibs.jpg
                         Aliases:
                           - meat
                           - ribs
@@ -446,10 +446,10 @@ paths:
                         Longitude: '112.626672'
                         Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                         Region: Jawa timur
-                      Image: /image/meatRibs.jpg
+                      Image: /image/cowMeatRibs.jpg
                       Description: ini daging sapi bagian rusuk
                       FirstRegisteredAt: '10/03/2017 07:29:46 -0700'
-                      PricePerSet: Rp.100.000
+                      PricePerSet: '100000'
                       IsAvailable: true
                       IsActive: true
                       IsFixed: true
