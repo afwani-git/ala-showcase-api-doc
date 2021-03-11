@@ -257,6 +257,194 @@ paths:
                         DiscountValue: 10
                         DiscountAmount: 10%
                         DiscountActive: true
+                      - UUID: 4dadfe77-8174-42b3-8452-e742f0891a1f
+                        GoodVariant:
+                          UUID: 5666dfe6-5ca7-47f7-9252-4cfc47967343
+                          Code: chicken-meat
+                          Good:
+                            UUID: 1bf1b3d9-ec2c-4556-a2fa-7bdbb33ae673
+                            Code: chicken-meat
+                            Category: e22f237f-914b-4a91-a419-d96810cb55c4
+                            Name: Chicken Meat
+                            Image: /img/good/chicken-meat.jpg
+                            Aliases:
+                              - fresh chicken meat
+                            Description: freshly cut chickens and chickens that are raised on village farms
+                            UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
+                            UnitValue: 8
+                            IsFixed: true
+                            IsDraft: Draft
+                            DraftBy:
+                              UUID: 2debfd7a-2c9c-11ea-978f-2e728ce88125
+                              Type: Driver
+                              Code: D-002
+                              Name: Ana
+                              FullName: Ana Elma
+                              Logo: /img/partner/logo/ana.png
+                              Image: /img/partner/ana.jpg
+                              Latitude: '-7.497649'
+                              Longitude: '112.456648'
+                              Address: 'Jl mawar no 78, Mojoanyar'
+                              Region: Mojokerto
+                          Name: '@Chicken Meat'
+                          Image: /img/good/chicken-meat.jpg
+                          Description: freshly cut chickens and chickens that are raised on village farms
+                          UnitValue: 8
+                          IsDraft: Draft
+                          DraftBy:
+                            UUID: 2debfa82-2c9c-11ea-978f-2e728ce88125
+                            Type: Warehouse
+                            Code: W-002
+                            Name: village unit farms
+                            FullName: village unit farms
+                            Logo: /img/partner/logo/village-unit-farms.jpg
+                            Image: /img/partner/village-unit-farms.jpg
+                            Latitude: '-7.497090'
+                            Longitude: '112.454610'
+                            Address: Jl mawar no 90. Mojoanyar
+                            Region: Mojokerto
+                        Good:
+                          UUID: 1bf1b3d9-ec2c-4556-a2fa-7bdbb33ae673
+                          Code: chicken-meat
+                          Category: e22f237f-914b-4a91-a419-d96810cb55c4
+                          Name: Chicken Meat
+                          Image: /img/good/chicken-meat.jpg
+                          Aliases:
+                            - fresh chicken meat
+                          Description: freshly cut chickens and chickens that are raised on village farms
+                          UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
+                          UnitValue: 10
+                          IsFixed: true
+                          IsDraft: Draft
+                          DraftBy:
+                            UUID: 2debfa82-2c9c-11ea-978f-2e728ce88125
+                            Type: Warehouse
+                            Code: W-002
+                            Name: village unit farms
+                            FullName: village unit farms
+                            Logo: /img/partner/logo/village-unit-farms.jpg
+                            Image: /img/partner/village-unit-farms.jpg
+                            Latitude: '-7.497090'
+                            Longitude: '112.454610'
+                            Address: Jl mawar no 90. Mojoanyar
+                            Region: Mojokerto
+                        User:
+                          UUID: 0622a0ac-9e89-4aa6-a763-b5c4805add71
+                          Type: Driver
+                          Code: village-unit-farms
+                          Name: village unit farms
+                          FullName: village unit farms
+                          Logo: /img/partner/logo/village-unit-farms.png
+                          Image: /ing/partner/village-unit-farms.jpg
+                          Latitude: '-7.497090'
+                          Longitude: '112.454610'
+                          Address: Jl mawar no 90. Mojoanyar
+                          Region: Mojokerto
+                        Image: /img/product/village-unit-farms.jpg
+                        Description: freshly cut chickens and chickens that are raised on village farms
+                        FirstRegisteredAt: '2021-03-11'
+                        PricePerSet: '25000'
+                        IsAvailable: true
+                        IsActive: true
+                        isFixed: true
+                        DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
+                        DiscountValue: 15
+                        DiscountAmount: 15%
+                        DiscountActive: true
+                      - UUID: 10001ed9-bcc1-4be4-aa9e-fdaa1452ec63
+                        GoodVariant:
+                          UUID: 6ed3c5b3-756a-4796-9c17-5c303e1debd1
+                          Code: fresh-watermelon
+                          Good:
+                            UUID: 32ee47f6-85ef-46b3-b447-496edb5f15d5
+                            Code: fresh-watermelon
+                            Category: 9e7f7aec-020a-42c6-8ab2-51802cfba37d
+                            Name: Fresh Watermelon
+                            Image: /img/good/fresh-watermelon.jpg
+                            Aliases:
+                              - freshly harvested watermelon
+                            Description: watermelons are harvested in the village garden and guaranteed fresh
+                            UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
+                            UnitValue: 50
+                            IsFixed: true
+                            IsDraft: Draft
+                            DraftBy:
+                              UUID: ad76b84a-62ff-40d2-8a19-d099466b728b
+                              Type: Driver
+                              Code: D-003
+                              Name: Johan
+                              FullName: Johan Tamba
+                              Logo: /img/partner/logo/johan.png
+                              Image: /img/partner/johan.jpg
+                              Latitude: '-7.497649'
+                              Longitude: '112.456648'
+                              Address: 'Jl mawar no 78, Mojoanyar'
+                              Region: Mojokerto
+                          Name: '@Watermelon'
+                          Image: /img/good/chicken-meat.jpg
+                          Description: watermelons are harvested in the village garden and guaranteed fresh
+                          UnitValue: 50
+                          IsDraft: Draft
+                          DraftBy:
+                            UUID: 2debfa82-2c9c-11ea-978f-2e728ce88125
+                            Type: Warehouse
+                            Code: W-003
+                            Name: watermelon garden
+                            FullName: watermelon garden
+                            Logo: /img/partner/logo/watermelon-garden.jpg
+                            Image: /img/partner/watermelon-garden.jpg
+                            Latitude: '-7.497090'
+                            Longitude: '112.454610'
+                            Address: Jl mawar no 90. Mojoanyar
+                            Region: Mojokerto
+                        Good:
+                          UUID: 32ee47f6-85ef-46b3-b447-496edb5f15d5
+                          Code: fresh-watermelon
+                          Category: 9e7f7aec-020a-42c6-8ab2-51802cfba37d
+                          Name: Fresh Watermelon
+                          Image: /img/good/fresh-watermelon.jpg
+                          Aliases:
+                            - freshly harvested watermelon
+                          Description: watermelons are harvested in the village garden and guaranteed fresh
+                          UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
+                          UnitValue: 50
+                          IsFixed: true
+                          IsDraft: Draft
+                          DraftBy:
+                            UUID: 2debfa82-2c9c-11ea-978f-2e728ce88125
+                            Type: Warehouse
+                            Code: W-003
+                            Name: watermelon garden
+                            FullName: watermelon garden
+                            Logo: /img/partner/logo/watermelon-garden.jpg
+                            Image: /img/partner/watermelon-garden.jpg
+                            Latitude: '-7.497090'
+                            Longitude: '112.454610'
+                            Address: Jl mawar no 90. Mojoanyar
+                            Region: Mojokerto
+                        User:
+                          UUID: 0622a0ac-9e89-4aa6-a763-b5c4805add71
+                          Type: Driver
+                          Code: watermelon-garden
+                          Name: village-unit-farms
+                          FullName: village-unit-farms
+                          Logo: /img/partner/logo/village-unit-farms.png
+                          Image: /ing/partner/village-unit-farms.jpg
+                          Latitude: '-7.497090'
+                          Longitude: '112.454610'
+                          Address: Jl mawar no 90. Mojoanyar
+                          Region: Mojokerto
+                        Image: /img/product/village-unit-farms.jpg
+                        Description: watermelons are harvested in the village garden and guaranteed fresh
+                        FirstRegisteredAt: '2021-03-11'
+                        PricePerSet: '15000'
+                        IsAvailable: true
+                        IsActive: true
+                        isFixed: true
+                        DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
+                        DiscountValue: 10
+                        DiscountAmount: 10%
+                        DiscountActive: true
         '401':
           $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-category-slug-product
