@@ -493,26 +493,26 @@ paths:
                     status: 200
                     messages: OK
                     data:
-                      - UUID: '0001'
-                        Code: CAT-001
+                      - UUID: aa0385f2-ea3f-4b80-8777-19eb6d494aa0
+                        Code: fresh-vegetable
                         Image: vegetable
-                        Description: /img/category/CAT-001.jpg
+                        Description: /img/category/vegetable.jpg
                         Order: '12'
                         IsDraft: Public
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0002'
-                        Code: CAT-002
+                      - UUID: 9e7f7aec-020a-42c6-8ab2-51802cfba37d
+                        Code: resh-fruit
                         Image: Fruit
-                        Description: /img/category/CAT-002.jpg
+                        Description: /img/category/fruit.jpg
                         Order: '22'
                         IsDraft: Public
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0003'
-                        Code: CAT-003
+                      - UUID: e22f237f-914b-4a91-a419-d96810cb55c4
+                        Code: fresh-meat
                         Image: Meat
-                        Description: /img/category/CAT-003.jpg
+                        Description: /img/category/meat.jpg
                         Order: '32'
-                        IsDraft: Draf
+                        IsDraft: Draft
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
         '401':
           $ref: '#/components/responses/unauthorized-res'
@@ -558,26 +558,26 @@ paths:
                     status: 200
                     messages: OK
                     data:
-                      - UUID: '0001'
-                        Code: CAT-001
+                      - UUID: aa0385f2-ea3f-4b80-8777-19eb6d494aa0
+                        Code: fresh-vegetable
                         Image: vegetable
-                        Description: /img/category/CAT-001.jpg
+                        Description: /img/category/vegetable.jpg
                         Order: '12'
                         IsDraft: Public
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0002'
-                        Code: CAT-002
+                      - UUID: 9e7f7aec-020a-42c6-8ab2-51802cfba37d
+                        Code: resh-fruit
                         Image: Fruit
-                        Description: /img/category/CAT-002.jpg
+                        Description: /img/category/fruit.jpg
                         Order: '22'
                         IsDraft: Public
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
-                      - UUID: '0003'
-                        Code: CAT-003
+                      - UUID: e22f237f-914b-4a91-a419-d96810cb55c4
+                        Code: fresh-meat
                         Image: Meat
-                        Description: /img/category/CAT-003.jpg
+                        Description: /img/category/meat.jpg
                         Order: '32'
-                        IsDraft: Draf
+                        IsDraft: Draft
                         DraftBy: c0c29d6e-9082-4516-a41c-4aa5e142c392
         '401':
           $ref: '#/components/responses/unauthorized-res'
@@ -620,17 +620,100 @@ paths:
                     status: 200
                     messages: OK
                     data:
-                      - UUID: '0001'
-                        Code: CAT-001
-                        Image: vegetable
-                      - UUID: '0002'
-                        Code: CAT-002
-                        Image: Fruit
-                        Description: /img/category/CAT-002.jpg
-                      - UUID: '0003'
-                        Code: CAT-003
-                        Image: Meat
-                        Description: /img/category/CAT-003.jpg
+                      - UUID: f50af7e0-0dd5-4361-ab96-2e04f7bc7e30
+                        GoodVariant:
+                          UUID: 1a40f9bf-37f5-49c1-90c4-c0dcfcd8bddd
+                          Code: fresh-cabbage
+                          Good:
+                            UUID: 1bf1b3d9-ec2c-4556-a2fa-7bdbb33ae673
+                            Code: fresh-cabbage
+                            Category: aa0385f2-ea3f-4b80-8777-19eb6d494aa0
+                            Name: Cabbage
+                            Image: /img/good/cabbage.jpg
+                            Aliases:
+                              - Fresh cabbage
+                            Description: fresh and cheap cabbage
+                            UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
+                            UnitValue: 10
+                            IsFixed: true
+                            IsDraft: Draft
+                            DraftBy:
+                              UUID: 2debfd7a-2c9c-11ea-978f-2e728ce88125
+                              Type: Driver
+                              Code: D-001
+                              Name: Helmi
+                              FullName: Helmi Pradita
+                              Logo: /img/partner/logo/helmi.png
+                              Image: /img/partner/helmi.jpg
+                              Latitude: '-7.497649'
+                              Longitude: '112.456648'
+                              Address: 'Jl mawar no 78, Mojoanyar'
+                              Region: Mojokerto
+                          Name: '@Fresh Cabbage'
+                          Image: /img/good/cabbage.jpg
+                          Description: fresh and cheap cabbage
+                          UnitValue: 10
+                          IsDraft: Draft
+                          DraftBy:
+                            UUID: 2debfa82-2c9c-11ea-978f-2e728ce88125
+                            Type: Warehouse
+                            Code: W-001
+                            Name: grocery store
+                            FullName: grocery store
+                            Logo: /img/partner/logo/grocery.jpg
+                            Image: /img/partner/grocery.jpg
+                            Latitude: '-7.497090'
+                            Longitude: '112.454610'
+                            Address: Jl mawar no 90. Mojoanyar
+                            Region: Mojokerto
+                        Good:
+                          UUID: b2af6eae-e4c1-4d67-8297-a6f9c3d42f01
+                          Code: fresh-cabbage
+                          Category: aa0385f2-ea3f-4b80-8777-19eb6d494aa0
+                          Name: Cabbage
+                          Image: /img/good/cabbage.jpg
+                          Aliases:
+                            - Fresh cabbage
+                          Description: fresh and cheap cabbage
+                          UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
+                          UnitValue: 10
+                          IsFixed: true
+                          IsDraft: Draft
+                          DraftBy:
+                            UUID: 2debfd7a-2c9c-11ea-978f-2e728ce88125
+                            Type: Driver
+                            Code: D-001
+                            Name: Helmi
+                            FullName: Helmi Pradita
+                            Logo: /img/partner/logo/helmi.png
+                            Image: /img/partner/helmi.jpg
+                            Latitude: '-7.497649'
+                            Longitude: '112.456648'
+                            Address: 'Jl mawar no 78, Mojoanyar'
+                            Region: Mojokerto
+                        User:
+                          UUID: 90092eaf-2945-440f-a138-dd34164881dd
+                          Type: Driver
+                          Code: grocery-store
+                          Name: Grocery Store
+                          FullName: Grocery Store
+                          Logo: /img/partner/logo/grocery.png
+                          Image: /ing/partner/grocery.jpg
+                          Latitude: '-7.497090'
+                          Longitude: '112.454610'
+                          Address: Jl mawar no 90. Mojoanyar
+                          Region: Mojokerto
+                        Image: /img/product/cabbage.jpg
+                        Description: Fresh cabbage that is harvested in the garden itself is sold at a low price
+                        FirstRegisteredAt: '2021-03-11'
+                        PricePerSet: '10000'
+                        IsAvailable: true
+                        IsActive: true
+                        isFixed: true
+                        DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
+                        DiscountValue: 10
+                        DiscountAmount: 10%
+                        DiscountActive: true
         '401':
           $ref: '#/components/responses/unauthorized-res'
       operationId: get-apis-category-slug-product
