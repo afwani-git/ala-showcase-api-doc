@@ -42,10 +42,10 @@ paths:
                     status: 200
                     message: getting partner info success
                     data:
-                      UUID: '1'
-                      Type: meat
+                      UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                      Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                       Code: SYR-765
-                      Name: Budi
+                      Name: Budi473
                       FullName: Budi Santoso
                       Logo: /img/logo.jpg
                       Image: /img/image.jpg
@@ -93,14 +93,14 @@ paths:
                     status: 200
                     message: getting product list success
                     data:
-                      - UUID: '1'
+                      - UUID: 0a18b194-8232-11eb-8dcd-0242ac130003
                         GoodVariant:
-                          UUID: '1'
-                          Code: daging-sapi-ribs-1
+                          UUID: 2ee5c042-8233-11eb-8dcd-0242ac130003
+                          Code: daging-sapi-ribs
                           Good:
-                            UUID: '1'
-                            Code: daging-sapi-ribs-1
-                            Category: daging
+                            UUID: 3f51ae0a-8233-11eb-8dcd-0242ac130003
+                            Code: daging-sapi-ribs
+                            Category: ec0abde4-8233-11eb-8dcd-0242ac130003
                             Name: daging sapi ribs
                             Image: /image/meatRibs.jpg
                             Aliases:
@@ -112,15 +112,15 @@ paths:
                               - tulang rusuk
                               - rusuk sapi
                             Description: ini daging sapi bagian rusuknya
-                            UnitType: Kilograms
+                            UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
                             UnitValue: 1
                             IsFixed: true
                             IsDraft: Public
                             DraftBy:
-                              UUID: '1'
-                              Type: meat
+                              UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                              Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                               Code: SYR-765
-                              Name: Budi
+                              Name: Budi473
                               FullName: Budi Santoso
                               Logo: /img/logo.jpg
                               Image: /img/image.jpg
@@ -134,10 +134,10 @@ paths:
                           UnitValue: 1
                           IsDraft: Public
                           DraftBy:
-                            UUID: '1'
-                            Type: meat
+                            UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                            Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                             Code: SYR-765
-                            Name: Budi
+                            Name: Budi473
                             FullName: Budi Santoso
                             Logo: /img/logo.jpg
                             Image: /img/image.jpg
@@ -146,9 +146,9 @@ paths:
                             Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                             Region: Jawa timur
                         Good:
-                          UUID: '1'
-                          Code: daging-sapi-ribs-1
-                          Category: Daging
+                          UUID: 3f51ae0a-8233-11eb-8dcd-0242ac130003
+                          Code: daging-sapi-ribs
+                          Category: ec0abde4-8233-11eb-8dcd-0242ac130003
                           Name: daging sapi ribs
                           Image: /image/meatRibs.jpg
                           Aliases:
@@ -159,16 +159,16 @@ paths:
                             - sapi
                             - tulang rusuk
                             - rusuk sapi
-                          Description: ini daging sapi bagian rusuk
-                          UnitType: Kilograms
+                          Description: ini daging sapi bagian rusuknya
+                          UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
                           UnitValue: 1
                           IsFixed: true
                           IsDraft: Public
                           DraftBy:
-                            UUID: '1'
-                            Type: meat
+                            UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                            Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                             Code: SYR-765
-                            Name: Budi
+                            Name: Budi473
                             FullName: Budi Santoso
                             Logo: /img/logo.jpg
                             Image: /img/image.jpg
@@ -177,10 +177,10 @@ paths:
                             Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                             Region: Jawa timur
                         User:
-                          UUID: '1'
-                          Type: meat
+                          UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                          Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                           Code: SYR-765
-                          Name: Budi
+                          Name: Budi473
                           FullName: Budi Santoso
                           Logo: /img/logo.jpg
                           Image: /img/image.jpg
@@ -195,18 +195,18 @@ paths:
                         IsAvailable: true
                         IsActive: true
                         IsFixed: true
-                        DiscountType: Percentage
+                        DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
                         DiscountValue: 10
                         DiscountAmount: 10%
                         DiscountActive: false
-                      - UUID: '2'
+                      - UUID: 06ca4cf6-8236-11eb-8dcd-0242ac130003
                         GoodVariant:
-                          UUID: '2'
-                          Code: daging-sapi-chuck-2
+                          UUID: 18a6e8e4-8236-11eb-8dcd-0242ac130003
+                          Code: daging-sapi-chuck
                           Good:
-                            UUID: '2'
-                            Code: daging-sapi-chuck-2
-                            Category: daging
+                            UUID: 27ca4140-8236-11eb-8dcd-0242ac130003
+                            Code: daging-sapi-chuck
+                            Category: 351c8efc-8236-11eb-8dcd-0242ac130003
                             Name: daging sapi chuck
                             Image: /image/meatChuck.jpg
                             Aliases:
@@ -219,15 +219,15 @@ paths:
                               - paha sapi
                               - paha depan sapi
                             Description: ini daging sapi bagian paha depan
-                            UnitType: Kilograms
+                            UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
                             UnitValue: 1
                             IsFixed: true
                             IsDraft: Public
                             DraftBy:
-                              UUID: '1'
-                              Type: meat
+                              UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                              Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                               Code: SYR-765
-                              Name: Budi
+                              Name: Budi473
                               FullName: Budi Santoso
                               Logo: /img/logo.jpg
                               Image: /img/image.jpg
@@ -241,10 +241,10 @@ paths:
                           UnitValue: 1
                           IsDraft: Public
                           DraftBy:
-                            UUID: '1'
-                            Type: meat
+                            UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                            Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                             Code: SYR-765
-                            Name: Budi
+                            Name: Budi473
                             FullName: Budi Santoso
                             Logo: /img/logo.jpg
                             Image: /img/image.jpg
@@ -253,9 +253,9 @@ paths:
                             Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                             Region: Jawa timur
                         Good:
-                          UUID: '2'
-                          Code: daging-sapi-chuck-2
-                          Category: Daging
+                          UUID: 27ca4140-8236-11eb-8dcd-0242ac130003
+                          Code: daging-sapi-chuck
+                          Category: 351c8efc-8236-11eb-8dcd-0242ac130003
                           Name: daging sapi chuck
                           Image: /image/meatChuck.jpg
                           Aliases:
@@ -268,15 +268,15 @@ paths:
                             - paha sapi
                             - paha depan sapi
                           Description: ini daging sapi bagian paha depan
-                          UnitType: Kilograms
+                          UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
                           UnitValue: 1
                           IsFixed: true
                           IsDraft: Public
                           DraftBy:
-                            UUID: '1'
-                            Type: meat
+                            UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                            Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                             Code: SYR-765
-                            Name: Budi
+                            Name: Budi473
                             FullName: Budi Santoso
                             Logo: /img/logo.jpg
                             Image: /img/image.jpg
@@ -285,10 +285,10 @@ paths:
                             Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                             Region: Jawa timur
                         User:
-                          UUID: '1'
-                          Type: meat
+                          UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                          Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                           Code: SYR-765
-                          Name: Budi
+                          Name: Budi473
                           FullName: Budi Santoso
                           Logo: /img/logo.jpg
                           Image: /img/image.jpg
@@ -303,7 +303,7 @@ paths:
                         IsAvailable: true
                         IsActive: true
                         IsFixed: true
-                        DiscountType: Percentage
+                        DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
                         DiscountValue: 10
                         DiscountAmount: 10%
                         DiscountActive: true
@@ -351,14 +351,14 @@ paths:
                     status: 200
                     message: getting product info success
                     data:
-                      UUID: '1'
+                      UUID: 0a18b194-8232-11eb-8dcd-0242ac130003
                       GoodVariant:
-                        UUID: '1'
-                        Code: daging-sapi-ribs-1
+                        UUID: 2ee5c042-8233-11eb-8dcd-0242ac130003
+                        Code: daging-sapi-ribs
                         Good:
-                          UUID: '1'
-                          Code: daging-sapi-ribs-1
-                          Category: daging
+                          UUID: 3f51ae0a-8233-11eb-8dcd-0242ac130003
+                          Code: daging-sapi-ribs
+                          Category: ec0abde4-8233-11eb-8dcd-0242ac130003
                           Name: daging sapi ribs
                           Image: /image/meatRibs.jpg
                           Aliases:
@@ -370,15 +370,15 @@ paths:
                             - tulang rusuk
                             - rusuk sapi
                           Description: ini daging sapi bagian rusuknya
-                          UnitType: Kilograms
+                          UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
                           UnitValue: 1
                           IsFixed: true
                           IsDraft: Public
                           DraftBy:
-                            UUID: '1'
-                            Type: meat
+                            UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                            Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                             Code: SYR-765
-                            Name: Budi
+                            Name: Budi473
                             FullName: Budi Santoso
                             Logo: /img/logo.jpg
                             Image: /img/image.jpg
@@ -392,10 +392,10 @@ paths:
                         UnitValue: 1
                         IsDraft: Public
                         DraftBy:
-                          UUID: '1'
-                          Type: meat
+                          UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                          Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                           Code: SYR-765
-                          Name: Budi
+                          Name: Budi473
                           FullName: Budi Santoso
                           Logo: /img/logo.jpg
                           Image: /img/image.jpg
@@ -404,9 +404,9 @@ paths:
                           Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                           Region: Jawa timur
                       Good:
-                        UUID: '1'
-                        Code: daging-sapi-ribs-1
-                        Category: Daging
+                        UUID: 3f51ae0a-8233-11eb-8dcd-0242ac130003
+                        Code: daging-sapi-ribs
+                        Category: ec0abde4-8233-11eb-8dcd-0242ac130003
                         Name: daging sapi ribs
                         Image: /image/meatRibs.jpg
                         Aliases:
@@ -417,16 +417,16 @@ paths:
                           - sapi
                           - tulang rusuk
                           - rusuk sapi
-                        Description: ini daging sapi bagian rusuk
-                        UnitType: Kilograms
+                        Description: ini daging sapi bagian rusuknya
+                        UnitType: 15a4840e-af27-11ea-b3de-0242ac130004
                         UnitValue: 1
                         IsFixed: true
                         IsDraft: Public
                         DraftBy:
-                          UUID: '1'
-                          Type: meat
+                          UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                          Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                           Code: SYR-765
-                          Name: Budi
+                          Name: Budi473
                           FullName: Budi Santoso
                           Logo: /img/logo.jpg
                           Image: /img/image.jpg
@@ -435,10 +435,10 @@ paths:
                           Address: Jl. Soekarno - Hatta Rembuksari No.1 A Kota Malang
                           Region: Jawa timur
                       User:
-                        UUID: '1'
-                        Type: meat
+                        UUID: 0a18af5a-8232-11eb-8dcd-0242ac130003
+                        Type: 2debfa82-2c9c-11ea-978f-2e728ce88125
                         Code: SYR-765
-                        Name: Budi
+                        Name: Budi473
                         FullName: Budi Santoso
                         Logo: /img/logo.jpg
                         Image: /img/image.jpg
@@ -453,7 +453,7 @@ paths:
                       IsAvailable: true
                       IsActive: true
                       IsFixed: true
-                      DiscountType: Percentage
+                      DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
                       DiscountValue: 10
                       DiscountAmount: 10%
                       DiscountActive: false
