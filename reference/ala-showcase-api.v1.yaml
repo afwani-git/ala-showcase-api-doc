@@ -197,7 +197,7 @@ paths:
                         IsFixed: true
                         DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
                         DiscountValue: 10
-                        DiscountAmount: 10%
+                        DiscountAmount: '90000'
                         DiscountActive: false
                       - UUID: 06ca4cf6-8236-11eb-8dcd-0242ac130003
                         GoodVariant:
@@ -305,7 +305,7 @@ paths:
                         IsFixed: true
                         DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
                         DiscountValue: 10
-                        DiscountAmount: 10%
+                        DiscountAmount: '135000'
                         DiscountActive: true
         '401':
           $ref: '#/components/responses/unauthorized-res'
@@ -455,7 +455,7 @@ paths:
                       IsFixed: true
                       DiscountType: c2795c7e-7360-11eb-9439-0242ac130002
                       DiscountValue: 10
-                      DiscountAmount: 10%
+                      DiscountAmount: '90000'
                       DiscountActive: false
         '401':
           $ref: '#/components/responses/unauthorized-res'
