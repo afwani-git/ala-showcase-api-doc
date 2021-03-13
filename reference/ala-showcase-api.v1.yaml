@@ -264,6 +264,7 @@ paths:
       security:
         - X-Ala-Token: []
       parameters: []
+
 components:
   schemas:
     Partner:
