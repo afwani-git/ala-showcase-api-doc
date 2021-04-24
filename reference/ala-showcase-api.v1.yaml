@@ -17,7 +17,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Get Product Info
+      summary: Get Partner Info
       tags:
         - partner
       responses:
